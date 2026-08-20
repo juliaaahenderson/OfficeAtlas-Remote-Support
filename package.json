@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "npx next build",
+    "build": "opennextjs-cloudflare build",
     "dev": "npx next dev",
     "start": "npx next start",
     "lint": "eslint",
