@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --background: #FCFCFC;
+  --foreground: #0A0F1D;
+  
+  --color-m365-blue: #0078D4;
+  --color-m365-excel: #107C41;
+  --color-m365-teams: #464EB8;
+  --color-m365-ppt: #D83B01;
+  --color-m365-word: #2B579A;
+  --color-m365-copilot: #6E56CF;
+}
+
+@theme {
+  --font-serif: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --color-brand-blue: var(--color-m365-blue);
+  --color-brand-excel: var(--color-m365-excel);
+  --color-brand-teams: var(--color-m365-teams);
+  --color-brand-ppt: var(--color-m365-ppt);
+  --color-brand-word: var(--color-m365-word);
+  --color-brand-copilot: var(--color-m365-copilot);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.2);
+}
