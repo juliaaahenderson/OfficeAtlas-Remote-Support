@@ -239,7 +239,7 @@ export default function Microsoft365Hub() {
                       ))}
                     </div>
                     <Link
-                      href={`/microsoft-365/${activeProduct.slug}`}
+                      href={`/products/${activeProduct.slug}`}
                       style={{ 
                         backgroundColor: activeProduct.color,
                         boxShadow: `0 4px 14px -3px ${activeProduct.color}50`

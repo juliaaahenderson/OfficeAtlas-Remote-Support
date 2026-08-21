@@ -840,7 +840,7 @@ export default function ProductDetailPage({ params }: { params: Promise<{ produc
                   return (
                     <Link
                       key={rp.slug}
-                      href={`/microsoft-365/${rp.slug}`}
+                      href={`/products/${rp.slug}`}
                       className="group p-5 bg-white border border-slate-200 hover:border-blue-350 rounded-2xl shadow-sm hover:shadow transition-all flex flex-col justify-between"
                     >
                       <div className="space-y-3">

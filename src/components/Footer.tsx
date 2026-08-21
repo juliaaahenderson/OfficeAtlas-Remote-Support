@@ -1,92 +1,150 @@
 "use client";
 
+import Link from "next/link";
+import { 
+  ChevronRight,
+  Shield
+} from "lucide-react";
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const sections = [
-    {
-      title: "Explore",
-      links: [
-        { label: "Products", href: "#products" },
-        { label: "Comparisons", href: "#compare" },
-        { label: "Guides", href: "#guides" },
-        { label: "Blog", href: "#blog" },
-        { label: "Research", href: "#research" }
-      ]
-    },
-    {
-      title: "Products",
-      links: [
-        { label: "Word", href: "#products" },
-        { label: "Excel", href: "#products" },
-        { label: "PowerPoint", href: "#products" },
-        { label: "Teams", href: "#products" },
-        { label: "Outlook", href: "#products" },
-        { label: "OneDrive", href: "#products" }
-      ]
-    },
-    {
-      title: "Resources",
-      links: [
-        { label: "Installation Guide", href: "#guides" },
-        { label: "Activation Guide", href: "#guides" },
-        { label: "Troubleshooting", href: "#guides" },
-        { label: "FAQs", href: "#" }
-      ]
-    },
-    {
-      title: "Company",
-      links: [
-        { label: "About", href: "#" },
-        { label: "Contact", href: "#" },
-        { label: "Privacy Policy", href: "#" }
-      ]
-    }
-  ];
-
   return (
-    <footer id="footer" className="bg-[#0A0F1D] text-zinc-400 py-16 border-t border-zinc-900">
+    <footer className="bg-[#070C16] text-[#A0AEC0] pt-12 pb-8 border-t border-zinc-900 relative overflow-hidden font-sans">
+      
+      {/* Subtle right-side ambient grid glow */}
+      <div className="absolute right-0 bottom-0 w-80 h-80 opacity-[0.08] pointer-events-none select-none">
+        <svg width="300" height="300" viewBox="0 0 300 300" fill="none" className="stroke-blue-500" strokeWidth="1">
+          <path d="M0,300 C100,200 200,100 300,0" />
+          <path d="M0,280 C90,190 180,90 280,0" />
+          <path d="M0,260 C80,180 160,80 260,0" />
+        </svg>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         
-        {/* Navigation Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
-          {sections.map((section, idx) => (
-            <div key={idx}>
-              <h4 className="text-white text-xs font-bold uppercase tracking-wider mb-5">
-                {section.title}
-              </h4>
-              <ul className="space-y-3 text-sm">
-                {section.links.map((link, lIdx) => (
-                  <li key={lIdx}>
-                    <a 
-                      href={link.href} 
-                      className="hover:text-white transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Legal Disclaimer & Brand Area */}
-        <div className="border-t border-zinc-900 pt-8 mt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <div className="max-w-md">
-            <div className="flex items-center gap-2.5 mb-4">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 items-start">
+          
+          {/* Column 1: Brand & Contact (lg:col-span-5) */}
+          <div className="lg:col-span-5 space-y-6">
+            <Link href="/" className="flex items-center gap-3">
               <img 
                 src="/office-atlas-logo-dark.png" 
                 alt="OfficeAtlas Logo" 
-                className="h-15 w-auto object-contain" 
+                className="h-20 w-auto object-contain"
               />
+            </Link>
+            
+            <p className="text-[#8A99AD] text-sm sm:text-base font-normal leading-relaxed max-w-sm">
+              OfficeAtlas helps teams work smarter with powerful tools, insights, and templates. All in one place.
+            </p>
+
+
+
+          </div>
+
+          {/* Vertical dividers & Link Columns (lg:col-span-7) */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Column 2: Explore */}
+            <div className="space-y-6 md:pr-4 md:border-r md:border-zinc-800/80">
+              <div className="space-y-2">
+                <h4 className="text-white text-sm font-bold uppercase tracking-widest">
+                  Explore
+                </h4>
+                <div className="w-6 h-[2px] bg-[#0078D4]" />
+              </div>
+              
+              <ul className="space-y-4 text-sm">
+                <li>
+                  <Link href="/products" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/compare" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Comparisons
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/guides" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Guides
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Blog
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <p className="text-[11px] text-zinc-500 leading-relaxed">
-              Disclaimer: This website is an independent educational and research resource and is not officially affiliated with, authorized, sponsored, or otherwise approved by Microsoft Corporation.
+
+            {/* Column 3: Company */}
+            <div className="space-y-6 md:px-4 md:border-r md:border-zinc-800/80">
+              <div className="space-y-2">
+                <h4 className="text-white text-sm font-bold uppercase tracking-widest">
+                  Company
+                </h4>
+                <div className="w-6 h-[2px] bg-[#0078D4]" />
+              </div>
+              
+              <ul className="space-y-4 text-sm">
+                <li>
+                  <Link href="/about" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Legal */}
+            <div className="space-y-6 md:pl-4">
+              <div className="space-y-2">
+                <h4 className="text-white text-sm font-bold uppercase tracking-widest">
+                  Legal
+                </h4>
+                <div className="w-6 h-[2px] bg-[#0078D4]" />
+              </div>
+              
+              <ul className="space-y-4 text-sm">
+                <li>
+                  <Link href="/privacy" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cookies" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Cookie Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+        {/* Bottom Bar Divider & Disclaimer / Copyright Row */}
+        <div className="border-t border-zinc-900 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
+          {/* Disclaimer on the left */}
+          <div className="max-w-3xl">
+            <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
+              Disclaimer: OfficeAtlas is an independent educational database and research platform providing tutorials, configuration manuals, and comparisons for Microsoft 365 services. All Microsoft product names, logos, and brands are property of their respective owners.
             </p>
           </div>
 
-          <div className="text-xs text-zinc-500 font-medium">
+          {/* Copyright on the right */}
+          <div className="text-xs text-[#8A99AD] font-semibold shrink-0">
             &copy; {currentYear} OfficeAtlas. All rights reserved.
           </div>
         </div>

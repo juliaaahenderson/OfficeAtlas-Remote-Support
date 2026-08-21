@@ -28,8 +28,10 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
 
   const navItems = [
     { name: "Products", href: "/products" },
+    { name: "Compare", href: "/compare" },
+    { name: "Guides", href: "/guides" },
     { name: "Blog", href: "/blog" },
-    { name: "About", href: "/" },
+    { name: "About", href: "/about" },
   ];
 
   return (
@@ -50,7 +52,7 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
             <img 
               src="/office-atlas-logo.png" 
               alt="OfficeAtlas Logo" 
-              className="h-14 w-auto object-contain group-hover:scale-102 transition-transform duration-300"
+              className="h-20 w-auto object-contain group-hover:scale-102 transition-transform duration-300"
             />
           </Link>
 
@@ -60,15 +62,8 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={(e) => {
+                onClick={() => {
                   setActiveItem(item.name);
-                  if (item.name === "About") {
-                    const footer = document.getElementById("footer");
-                    if (footer) {
-                      e.preventDefault();
-                      footer.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }
                 }}
                 className={`relative py-1.5 text-[16px] font-semibold tracking-wide transition-colors duration-300 cursor-pointer ${
                   activeItem === item.name
@@ -90,13 +85,13 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
 
           {/* Desktop CTA / Utilities */}
           <div className="hidden lg:flex items-center">
-            <a
+            <Link
               href="/products"
               className="inline-flex items-center gap-2 px-6.5 py-3 text-[14px] font-bold bg-[#0A0F1D] text-white rounded-lg hover:bg-[#0078D4] transition-all duration-300 shadow-sm hover:shadow-md"
             >
               Explore Products
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Buttons */}
@@ -133,16 +128,9 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
                 >
                   <Link
                     href={item.href}
-                    onClick={(e) => {
+                    onClick={() => {
                       setActiveItem(item.name);
                       setIsMobileMenuOpen(false);
-                      if (item.name === "About") {
-                        const footer = document.getElementById("footer");
-                        if (footer) {
-                          e.preventDefault();
-                          footer.scrollIntoView({ behavior: "smooth" });
-                        }
-                      }
                     }}
                     className={`text-xl font-bold tracking-tight cursor-pointer ${
                       activeItem === item.name ? "text-[#0078D4]" : "text-[#0A0F1D]"

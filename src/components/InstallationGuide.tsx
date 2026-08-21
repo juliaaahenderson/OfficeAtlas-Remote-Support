@@ -151,10 +151,10 @@ export default function InstallationGuide() {
         {/* Footer CTA Link */}
         <div className="mt-12 relative z-10">
           <Link 
-            href="/products" 
+            href="/guides" 
             className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-600 hover:text-blue-700 transition-colors"
           >
-            View Full Installation Guide
+            View All Deployment & Setup Guides
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

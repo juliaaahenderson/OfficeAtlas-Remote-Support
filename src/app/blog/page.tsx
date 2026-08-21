@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, User, BookOpen, ChevronRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User, BookOpen, ChevronRight, Search } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ResearchPaper {
@@ -172,12 +172,25 @@ function ResearchHubContent() {
   const searchParams = useSearchParams();
   const paperQuery = searchParams.get("paper");
   const [activePaperId, setActivePaperId] = useState(researchPapers[0].id);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
     if (paperQuery && researchPapers.some(p => p.id === paperQuery)) {
       setActivePaperId(paperQuery);
     }
   }, [paperQuery]);
+
+  const categories = ["All", ...Array.from(new Set(researchPapers.map(p => p.category)))];
+
+  const filteredPapers = researchPapers.filter(paper => {
+    const matchesCategory = selectedCategory === "All" || paper.category === selectedCategory;
+    const matchesSearch = 
+      paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      paper.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      paper.category.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const activePaper = researchPapers.find(p => p.id === activePaperId) || researchPapers[0];
 
@@ -215,43 +228,89 @@ function ResearchHubContent() {
           
           {/* Left Column - Paper Selectors List (Span 5) */}
           <div className="lg:col-span-5 space-y-4">
-            <h4 className="text-[10px] uppercase tracking-widest font-extrabold text-zinc-400 px-1">
-              Select Article ({researchPapers.length})
-            </h4>
-            <div className="space-y-3 max-h-[70vh] overflow-y-auto pr-2 custom-scrollbar">
-              {researchPapers.map((paper) => {
-                const isActive = activePaperId === paper.id;
-                return (
+            <div className="flex flex-col gap-3">
+              <div className="flex justify-between items-center px-1">
+                <h4 className="text-[10px] uppercase tracking-widest font-extrabold text-zinc-400">
+                  Select Article ({filteredPapers.length})
+                </h4>
+              </div>
+
+              {/* Search input */}
+              <div className="relative">
+                <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-450" />
+                <input
+                  type="text"
+                  placeholder="Search articles & publications..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 text-xs font-medium bg-white/60 border border-zinc-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 focus:bg-white transition-all shadow-sm"
+                />
+              </div>
+
+              {/* Categories wrapped selection */}
+              <div className="flex flex-wrap gap-1.5 px-1">
+                {categories.map((cat) => (
                   <button
-                    key={paper.id}
-                    onClick={() => setActivePaperId(paper.id)}
-                    className={`w-full text-left flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 relative group cursor-pointer ${
-                      isActive 
-                        ? "bg-white border-blue-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)] scale-[1.01]" 
-                        : "bg-white/40 border-zinc-200/60 hover:bg-white hover:border-zinc-300/80 hover:shadow-sm"
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-3 py-1.5 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all border ${
+                      selectedCategory === cat
+                        ? "bg-blue-600 border-blue-600 text-white shadow-sm"
+                        : "bg-white border-zinc-200 text-zinc-500 hover:text-zinc-800 hover:border-zinc-300"
                     }`}
                   >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-extrabold text-blue-600 uppercase tracking-wider">
-                          {paper.category}
-                        </span>
-                        {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />}
-                      </div>
-                      <h3 className="text-sm font-extrabold text-slate-900 mt-1 line-clamp-2 leading-snug">
-                        {paper.title}
-                      </h3>
-                      <p className="text-xs text-zinc-400 mt-1.5 line-clamp-1 font-semibold">
-                        {paper.summary}
-                      </p>
-                    </div>
-
-                    <ChevronRight className={`w-4 h-4 text-zinc-300 transition-transform duration-300 self-center shrink-0 ${
-                      isActive ? "translate-x-1 text-blue-500" : "group-hover:translate-x-0.5"
-                    }`} />
+                    {cat}
                   </button>
-                );
-              })}
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-3 max-h-[70vh] overflow-y-auto px-2 py-1 -mx-2 custom-scrollbar">
+              {filteredPapers.length > 0 ? (
+                filteredPapers.map((paper) => {
+                  const isActive = activePaperId === paper.id;
+                  return (
+                    <button
+                      key={paper.id}
+                      onClick={() => setActivePaperId(paper.id)}
+                      className={`w-full text-left flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 relative group cursor-pointer ${
+                        isActive 
+                          ? "bg-white border-blue-500 shadow-[0_8px_30px_rgb(0,0,0,0.04)] scale-[1.01]" 
+                          : "bg-white/40 border-zinc-200/60 hover:bg-white hover:border-zinc-300/80 hover:shadow-sm"
+                      }`}
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[9px] font-extrabold text-blue-600 uppercase tracking-wider">
+                            {paper.category}
+                          </span>
+                          {isActive && <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />}
+                        </div>
+                        <h3 className="text-sm font-extrabold text-slate-900 mt-1 line-clamp-2 leading-snug">
+                          {paper.title}
+                        </h3>
+                        <p className="text-xs text-zinc-400 mt-1.5 line-clamp-1 font-semibold">
+                          {paper.summary}
+                        </p>
+                      </div>
+
+                      <ChevronRight className={`w-4 h-4 text-zinc-300 transition-transform duration-300 self-center shrink-0 ${
+                        isActive ? "translate-x-1 text-blue-500" : "group-hover:translate-x-0.5"
+                      }`} />
+                    </button>
+                  );
+                })
+              ) : (
+                <div className="text-center py-12 px-4 bg-white/30 border border-dashed border-zinc-200 rounded-2xl">
+                  <p className="text-sm text-zinc-450 font-semibold">No publications match your search criteria.</p>
+                  <button 
+                    onClick={() => { setSearchQuery(""); setSelectedCategory("All"); }}
+                    className="mt-3 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors underline"
+                  >
+                    Clear Filters
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
