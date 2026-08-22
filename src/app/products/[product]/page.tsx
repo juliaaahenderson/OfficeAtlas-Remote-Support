@@ -42,7 +42,7 @@ const getOfficialLink = (slug: string) => {
     planner: 'https://www.microsoft.com/en-us/microsoft-365/planner/microsoft-planner',
     project: 'https://www.microsoft.com/en-us/microsoft-365/project/project-management-software',
     todo: 'https://to-do.office.com',
-    forms: 'https://forms.office.com',
+    forms: 'https://forms.microsoft.com',
     lists: 'https://www.microsoft.com/en-us/microsoft-365/microsoft-lists',
     'power-automate': 'https://www.microsoft.com/en-us/power-platform/products/power-automate',
     'power-apps': 'https://www.microsoft.com/en-us/power-platform/products/power-apps',
