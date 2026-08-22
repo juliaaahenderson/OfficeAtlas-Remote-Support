@@ -156,7 +156,7 @@ export default function CompareHub() {
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-[56px] font-sans font-semibold text-[#0A0F1D] tracking-tight leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl font-semibold text-[#0A0F1D] tracking-tight leading-[1.1]">
               Find the perfect plan for <span className="text-[#0078D4]">your needs</span>
             </h1>
 

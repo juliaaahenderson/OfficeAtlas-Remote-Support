@@ -56,7 +56,7 @@ export default function AboutPage() {
               </span>
               <span className="w-8 h-[1px] bg-[#0078D4]" />
             </div>
-            <h1 className="text-4xl sm:text-5xl md:text-[56px] font-sans font-semibold tracking-tight text-[#0A0F1D] leading-[1.08]">
+            <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#0A0F1D] leading-[1.08]">
               Your Trusted Guide to the <br />
               <span className="text-[#0078D4]">Microsoft 365 Ecosystem</span>
             </h1>

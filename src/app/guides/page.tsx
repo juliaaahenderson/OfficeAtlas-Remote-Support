@@ -175,7 +175,7 @@ export default function GuidesHub() {
             </span>
             <span className="w-8 h-[1px] bg-[#0078D4]" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-[56px] font-sans font-semibold text-[#0A0F1D] tracking-tight leading-[1.08]">
+          <h1 className="text-4xl font-semibold text-[#0A0F1D] tracking-tight leading-[1.08]">
             Guides & Implementation Manuals
           </h1>
           <p className="text-base sm:text-[17px] text-zinc-600 font-normal leading-relaxed max-w-2xl">
