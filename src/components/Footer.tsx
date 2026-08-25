@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { 
   ChevronRight,
   Shield
@@ -8,6 +9,8 @@ import {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+  const isQuickbooks = pathname === "/quickbooks" || pathname?.startsWith("/quickbooks/");
 
   return (
     <footer className="bg-[#070C16] text-[#A0AEC0] pt-12 pb-8 border-t border-zinc-900 relative overflow-hidden font-sans">
@@ -39,9 +42,6 @@ export default function Footer() {
             <p className="text-[#8A99AD] text-sm sm:text-base font-normal leading-relaxed max-w-sm">
               OfficeAtlas helps teams work smarter with powerful tools, insights, and templates. All in one place.
             </p>
-
-
-
           </div>
 
           {/* Vertical dividers & Link Columns (lg:col-span-7) */}
@@ -100,6 +100,11 @@ export default function Footer() {
                     <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Contact
                   </Link>
                 </li>
+                <li>
+                  <Link href={isQuickbooks ? "/quickbooks#research" : "/#research"} className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Research
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -124,8 +129,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/cookies" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Cookie Policy
+                  <Link href={isQuickbooks ? "/quickbooks#disclaimer" : "/#disclaimer"} className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Disclaimer
                   </Link>
                 </li>
               </ul>
@@ -138,9 +143,15 @@ export default function Footer() {
         <div className="border-t border-zinc-900 pt-6 flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
           {/* Disclaimer on the left */}
           <div className="max-w-3xl">
-            <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
-              Disclaimer: OfficeAtlas is an independent educational database and research platform providing tutorials, configuration manuals, and comparisons for Microsoft 365 services. All Microsoft product names, logos, and brands are property of their respective owners.
-            </p>
+            {isQuickbooks ? (
+              <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
+                Disclaimer: OfficeAtlas is an independent informational and research platform. QuickBooks and related product names, logos, and trademarks are the property of Intuit Inc. OfficeAtlas is not affiliated with, endorsed by, or sponsored by Intuit. Product information, pricing, availability, and features may change and should be verified with official sources.
+              </p>
+            ) : (
+              <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
+                Disclaimer: OfficeAtlas is an independent educational database and research platform providing tutorials, configuration manuals, and comparisons for Microsoft 365 services. All Microsoft product names, logos, and brands are property of their respective owners.
+              </p>
+            )}
           </div>
 
           {/* Copyright on the right */}

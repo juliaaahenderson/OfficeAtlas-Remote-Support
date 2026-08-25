@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Search, Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   onSearchClick: () => void;
@@ -12,7 +13,17 @@ interface NavbarProps {
 export default function Navbar({ onSearchClick }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const [activeItem, setActiveItem] = useState("Home");
+
+  useEffect(() => {
+    if (pathname === "/") setActiveItem("Home");
+    else if (pathname.startsWith("/about")) setActiveItem("About");
+    else if (pathname.startsWith("/guides")) setActiveItem("Guides");
+    else if (pathname.startsWith("/compare")) setActiveItem("Compare");
+    else if (pathname.startsWith("/blog")) setActiveItem("Blogs");
+    else if (pathname.startsWith("/quickbooks")) setActiveItem("QuickBooks");
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +38,12 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { name: "Products", href: "/products" },
-    { name: "Compare", href: "/compare" },
-    { name: "Guides", href: "/guides" },
-    { name: "Blog", href: "/blog" },
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
+    { name: "Guides", href: "/guides" },
+    { name: "Compare", href: "/compare" },
+    { name: "Blogs", href: "/blog" },
+    { name: "QuickBooks", href: "/quickbooks" },
   ];
 
   return (
