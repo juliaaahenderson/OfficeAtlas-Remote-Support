@@ -112,29 +112,112 @@ export default function ProductsDirectory() {
     <div className="bg-[#FAFBFD] min-h-screen text-[#0A0F1D] font-sans">
       
       {/* Clean Light Hero Header */}
-      <div className="relative pt-32 pb-14 px-6 md:px-10 overflow-hidden border-b border-zinc-200/60">
+      <div className="relative pt-28 pb-4 px-6 md:px-10 overflow-hidden border-b border-zinc-200/60">
         {/* Subtle background accent gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-[#FAFBFD] to-zinc-50" />
-        <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full blur-3xl opacity-20" style={{ background: `radial-gradient(circle, #0078D420, transparent 70%)` }} />
+        <div className="absolute top-0 right-0 w-[600px] h-[300px] rounded-full blur-3xl opacity-20" style={{ background: `radial-gradient(circle, #0078D420, transparent 70%)` }} />
         
         <div className="relative max-w-7xl mx-auto">
           <Link 
             href="/quickbooks"
-            className="text-xs font-semibold text-[#0078D4] hover:text-[#002060] transition-colors inline-flex items-center gap-1.5 mb-8"
+            className="text-xs font-semibold text-[#0078D4] hover:text-[#002060] transition-colors inline-flex items-center gap-1.5 mb-5"
           >
             ← Back to QuickBooks Hub
           </Link>
-          <div className="max-w-2xl space-y-5">
-            <div className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#0078D4] bg-[#0078D4]/5 px-3 py-1.5 rounded-full border border-[#0078D4]/15">
-              <Sparkles className="w-3 h-3" />
-              6 Products Available
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Left: Text */}
+            <div className="space-y-5">
+              <div className="inline-flex items-center gap-2 text-[11px] font-semibold text-[#0078D4] bg-[#0078D4]/5 px-3 py-1.5 rounded-full border border-[#0078D4]/15">
+                <Sparkles className="w-3 h-3" />
+                6 Products Available
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-sans font-semibold tracking-tight text-[#0A0F1D] leading-[1.12]">
+                QuickBooks Product Suite
+              </h1>
+              <p className="text-zinc-500 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
+                Find the right version of QuickBooks for your business workflows. Explore detailed plans, core features, and pricing structures.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-sans font-semibold tracking-tight text-[#0A0F1D] leading-[1.12]">
-              QuickBooks Product Suite
-            </h1>
-            <p className="text-zinc-500 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
-              Find the right version of QuickBooks for your business workflows. Explore detailed plans, core features, and pricing structures.
-            </p>
+
+            {/* Right: Premium SVG Product Grid Illustration */}
+            <div className="hidden lg:flex justify-end">
+              <svg width="420" height="240" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Central hub circle */}
+                <circle cx="210" cy="140" r="38" fill="#0078D4" opacity="0.06" stroke="#0078D4" strokeWidth="1.2" opacity="0.2"/>
+                <circle cx="210" cy="140" r="20" fill="#0078D4" opacity="0.1"/>
+                <text x="210" y="136" textAnchor="middle" fill="#0078D4" fontSize="10" fontWeight="800" fontFamily="system-ui">Quick</text>
+                <text x="210" y="148" textAnchor="middle" fill="#0078D4" fontSize="10" fontWeight="800" fontFamily="system-ui">Books</text>
+                
+                {/* Connection lines to satellites */}
+                <line x1="175" y1="120" x2="95" y2="60" stroke="#0078D4" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.25"/>
+                <line x1="245" y1="120" x2="325" y2="60" stroke="#7C3AED" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.25"/>
+                <line x1="175" y1="160" x2="85" y2="220" stroke="#0F766E" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.25"/>
+                <line x1="245" y1="160" x2="335" y2="220" stroke="#EA580C" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.25"/>
+                
+                {/* Top-left: Invoicing */}
+                <rect x="30" y="22" width="130" height="75" rx="12" fill="white" stroke="#E4E7EC" strokeWidth="1.2"/>
+                <rect x="42" y="34" width="28" height="28" rx="7" fill="#EFF6FF"/>
+                {/* Invoice icon */}
+                <rect x="49" y="40" width="14" height="18" rx="2" fill="#0078D4" opacity="0.3"/>
+                <rect x="52" y="44" width="8" height="2" rx="0.5" fill="#0078D4" opacity="0.6"/>
+                <rect x="52" y="48" width="6" height="2" rx="0.5" fill="#0078D4" opacity="0.4"/>
+                <rect x="52" y="52" width="8" height="2" rx="0.5" fill="#0078D4" opacity="0.6"/>
+                <text x="78" y="46" fill="#0A0F1D" fontSize="11" fontWeight="800" fontFamily="system-ui">Invoicing</text>
+                <text x="78" y="58" fill="#9CA3AF" fontSize="8" fontWeight="600" fontFamily="system-ui">Digital billing</text>
+                <rect x="42" y="72" width="50" height="4" rx="1.5" fill="#0078D4" opacity="0.12"/>
+                <rect x="42" y="72" width="35" height="4" rx="1.5" fill="#0078D4" opacity="0.4"/>
+                <rect x="100" y="72" width="48" height="4" rx="1.5" fill="#F3F4F6"/>
+                <text x="42" y="86" fill="#22C55E" fontSize="8.5" fontWeight="700" fontFamily="system-ui">$12,480 sent</text>
+
+                {/* Top-right: Reports */}
+                <rect x="260" y="22" width="130" height="75" rx="12" fill="white" stroke="#E4E7EC" strokeWidth="1.2"/>
+                <rect x="272" y="34" width="28" height="28" rx="7" fill="#F5F3FF"/>
+                {/* Chart icon */}
+                <rect x="279" y="50" width="4" height="10" rx="1" fill="#7C3AED" opacity="0.4"/>
+                <rect x="285" y="45" width="4" height="15" rx="1" fill="#7C3AED" opacity="0.6"/>
+                <rect x="291" y="42" width="4" height="18" rx="1" fill="#7C3AED" opacity="0.8"/>
+                <text x="308" y="46" fill="#0A0F1D" fontSize="11" fontWeight="800" fontFamily="system-ui">Reports</text>
+                <text x="308" y="58" fill="#9CA3AF" fontSize="8" fontWeight="600" fontFamily="system-ui">P&amp;L analytics</text>
+                {/* Mini line chart */}
+                <path d="M272 82 L290 76 L308 80 L326 72 L344 74 L362 68 L378 70" stroke="#7C3AED" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.5"/>
+                <circle cx="344" cy="74" r="2.5" fill="#7C3AED" opacity="0.7"/>
+                <text x="272" y="96" fill="#7C3AED" fontSize="8.5" fontWeight="700" fontFamily="system-ui">+18% growth</text>
+
+                {/* Bottom-left: Bank Sync */}
+                <rect x="20" y="185" width="130" height="75" rx="12" fill="white" stroke="#E4E7EC" strokeWidth="1.2"/>
+                <rect x="32" y="197" width="28" height="28" rx="7" fill="#F0FDFA"/>
+                {/* Bank icon */}
+                <rect x="39" y="210" width="14" height="10" rx="1" fill="#0F766E" opacity="0.3"/>
+                <rect x="42" y="205" width="8" height="5" rx="1" fill="#0F766E" opacity="0.5"/>
+                <line x1="38" y1="220" x2="54" y2="220" stroke="#0F766E" strokeWidth="1.5" opacity="0.4"/>
+                <text x="68" y="209" fill="#0A0F1D" fontSize="11" fontWeight="800" fontFamily="system-ui">Bank Sync</text>
+                <text x="68" y="221" fill="#9CA3AF" fontSize="8" fontWeight="600" fontFamily="system-ui">Auto-reconcile</text>
+                {/* Transaction rows */}
+                <rect x="32" y="235" width="106" height="6" rx="2" fill="#F3F4F6"/>
+                <rect x="32" y="235" width="78" height="6" rx="2" fill="#0F766E" opacity="0.12"/>
+                <circle cx="128" cy="238" r="3" fill="#22C55E" opacity="0.5"/>
+                <rect x="32" y="245" width="106" height="6" rx="2" fill="#F3F4F6"/>
+                <rect x="32" y="245" width="92" height="6" rx="2" fill="#0F766E" opacity="0.08"/>
+                <circle cx="128" cy="248" r="3" fill="#22C55E" opacity="0.5"/>
+
+                {/* Bottom-right: Payroll */}
+                <rect x="270" y="185" width="130" height="75" rx="12" fill="white" stroke="#E4E7EC" strokeWidth="1.2"/>
+                <rect x="282" y="197" width="28" height="28" rx="7" fill="#FFF7ED"/>
+                {/* Dollar/payroll icon */}
+                <circle cx="296" cy="211" r="8" fill="#EA580C" opacity="0.12"/>
+                <text x="296" y="215" textAnchor="middle" fill="#EA580C" fontSize="10" fontWeight="700" fontFamily="system-ui" opacity="0.6">$</text>
+                <text x="318" y="209" fill="#0A0F1D" fontSize="11" fontWeight="800" fontFamily="system-ui">Payroll</text>
+                <text x="318" y="221" fill="#9CA3AF" fontSize="8" fontWeight="600" fontFamily="system-ui">Auto tax filing</text>
+                {/* Employee rows */}
+                <circle cx="290" cy="242" r="4" fill="#EA580C" opacity="0.15"/>
+                <rect x="298" y="240" width="40" height="4" rx="1" fill="#E5E7EB"/>
+                <rect x="345" y="240" width="20" height="4" rx="1" fill="#22C55E" opacity="0.3"/>
+                <circle cx="290" cy="254" r="4" fill="#EA580C" opacity="0.15"/>
+                <rect x="298" y="252" width="35" height="4" rx="1" fill="#E5E7EB"/>
+                <rect x="345" y="252" width="24" height="4" rx="1" fill="#22C55E" opacity="0.3"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>

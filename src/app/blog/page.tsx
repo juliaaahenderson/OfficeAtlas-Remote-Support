@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ArrowLeft, Clock, Calendar, User, BookOpen, ChevronRight, Search } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, User, BookOpen, ChevronRight, Search, Newspaper, FileText, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ResearchPaper {
@@ -17,10 +17,11 @@ interface ResearchPaper {
   visual: string;
   summary: string;
   content: string[];
+  tabGroup: "microsoft" | "quickbooks";
 }
 
 const researchPapers: ResearchPaper[] = [
-  // 5 Blog Articles
+  // 5 Microsoft Blog Articles
   {
     id: "m365-explained",
     title: "Microsoft 365 Explained: A Complete Beginner's Guide",
@@ -40,7 +41,8 @@ const researchPapers: ResearchPaper[] = [
       "Setting up Microsoft 365 begins with configuring your tenant — the dedicated instance of Azure Active Directory (now Microsoft Entra ID) that houses your organization's identity and access management. From there, administrators assign licenses, configure security defaults, and establish conditional access policies that govern how and where users authenticate.",
       "By syncing files to OneDrive, configuring shared folders, and setting up collaborative channels in Teams, you establish a unified, secure workstation capable of handling modern work demands. The integration between these services means that a file created in Word can be instantly shared via Teams, co-edited in real-time, and stored with version history in SharePoint — all without leaving the Microsoft 365 ecosystem.",
       "For IT administrators, the Microsoft 365 Admin Center provides a centralized dashboard for managing users, monitoring service health, and configuring organization-wide settings. The Security & Compliance Center offers granular control over data loss prevention policies, retention labels, and audit logging — ensuring your deployment meets regulatory requirements from day one."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "whats-new",
@@ -61,7 +63,8 @@ const researchPapers: ResearchPaper[] = [
       "PowerPoint adds an automatic slide design engine that analyzes content as it's added and suggests professional layouts, color schemes, and typography pairings. The engine draws from a library of over 10,000 design templates and adapts recommendations based on brand guidelines configured in the organization's SharePoint brand center.",
       "Furthermore, security updates introduce tenant-wide information barrier protocols to separate department-level files automatically within SharePoint hubs, ensuring compliance without administrative hassle. These barriers are configured through the Microsoft Purview compliance portal and can be applied based on Azure AD attributes such as department, title, or custom security groups.",
       "On the administrative side, the Microsoft 365 Admin Center introduces a new health dashboard that provides real-time visibility into service incidents, planned maintenance windows, and feature deployment timelines. Administrators can now subscribe to targeted notifications for specific services and configure escalation paths for critical outages."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "excel-tips",
@@ -83,7 +86,8 @@ const researchPapers: ResearchPaper[] = [
       "Tip 6: Named ranges make formulas dramatically more readable. Instead of =SUM(B2:B500), define the range as 'MonthlySales' and write =SUM(MonthlySales). Named ranges also make it easier to manage complex workbooks, as they appear in the Name Manager (Ctrl+F3) and can be scoped to individual sheets or the entire workbook.",
       "We also discuss advanced formula auditing pipelines to debug logical errors, helping you build cleaner, more readable, and highly accurate sheets for enterprise operations. The Evaluate Formula tool (found under Formulas > Evaluate Formula) steps through complex nested formulas one operation at a time, revealing exactly where calculations diverge from expectations. Trace Precedents and Trace Dependents draw visual arrows between cells, mapping the flow of data through your workbook.",
       "Finally, we recommend establishing naming conventions, documentation sheets, and version control practices for shared workbooks. Using Excel Tables (Ctrl+T) instead of raw ranges ensures that formulas automatically expand as new data is added, and structured references like =SUM(SalesTable[Revenue]) remain readable even in the most complex financial models."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "teams-collab",
@@ -104,7 +108,8 @@ const researchPapers: ResearchPaper[] = [
       "For large-scale events, Teams Webinars support up to 1,000 interactive participants or 10,000 view-only attendees. Organizers can configure registration pages, customize email confirmations, and access post-event analytics including attendance duration, engagement scores, and poll responses. Town halls scale even further, supporting up to 20,000 attendees with producer controls for managing presenters and content.",
       "We explore optimization rules to schedule virtual webinars, configure webinar presenters, and manage recording files inside safe cloud storage paths. Meeting recordings are automatically saved to OneDrive (for ad-hoc meetings) or SharePoint (for channel meetings), with configurable retention policies that comply with organizational data governance requirements.",
       "App integrations extend Teams functionality through a marketplace of over 2,000 third-party and custom applications. From project management tools like Jira and Asana to CRM platforms like Salesforce and HubSpot, these integrations bring external workflows directly into the Teams interface. Custom apps can be built using the Teams Toolkit for Visual Studio Code, enabling organizations to create tailored solutions that address specific business needs."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "onedrive-sharepoint",
@@ -125,9 +130,10 @@ const researchPapers: ResearchPaper[] = [
       "From a compliance perspective, SharePoint offers more granular controls. Sensitivity labels, retention policies, and Data Loss Prevention (DLP) rules can be applied at the site, library, or individual document level. OneDrive supports these same policies but applies them at the user or file level. Organizations subject to regulatory requirements (HIPAA, SOX, GDPR) typically use SharePoint for regulated content and OneDrive for day-to-day personal productivity.",
       "Understanding these parameters allows system administrators to deploy correct access policies, secure file sharing, and reduce data leakage risks. We recommend a hybrid approach: use OneDrive for work-in-progress documents and personal files, and migrate finalized content to SharePoint document libraries where it benefits from team-level governance, search discoverability, and structured metadata.",
       "Migration between OneDrive and SharePoint is straightforward using the SharePoint Migration Tool (SPMT) or the Mover service for larger transfers. Both tools support mapping user-level OneDrive content to SharePoint libraries while preserving permissions, version history, and metadata — ensuring a seamless transition as organizational needs evolve."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
-  // 4 Research Papers
+  // 4 Microsoft Research Papers
   {
     id: "copilot-future",
     title: "Microsoft Copilot and the Future of Work",
@@ -148,7 +154,8 @@ const researchPapers: ResearchPaper[] = [
       "However, our research also identifies significant adoption barriers. Users with poorly organized file systems and inconsistent naming conventions experienced lower Copilot accuracy, as the RAG pipeline struggled to identify relevant source documents. Organizations that invested in SharePoint metadata governance, consistent folder structures, and document tagging saw markedly better results.",
       "Our telemetry indicates a significant reduction in time-to-draft metrics for communications (up to 38%) and a marked acceleration in meeting summarizations. We conclude that tenant-level context injection is the single most critical factor in driving user satisfaction with workspace AI companions.",
       "Looking ahead, we anticipate that the next generation of workspace AI will move beyond reactive assistance toward proactive intelligence — surfacing relevant documents before meetings, flagging conflicting calendar commitments, and automatically generating weekly status reports from project activity. Organizations that establish strong data governance foundations today will be best positioned to capitalize on these capabilities."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "modern-collaboration",
@@ -170,7 +177,8 @@ const researchPapers: ResearchPaper[] = [
       "Ultimately, we find that reducing transaction sync times directly correlates with higher collaborative group performance. By removing file check-out structures and replacing them with cloud-first shared editing workspaces, team workflow friction was decreased by approximately 45%.",
       "Cross-organizational collaboration has also been transformed through Teams Connect shared channels and Azure B2B guest access. Our research shows that 67% of enterprise Teams tenants now have active external collaborators, compared to just 31% in 2021. Shared channels in particular have reduced the administrative overhead of external collaboration by eliminating the need for guest account provisioning and separate authentication flows.",
       "We recommend that organizations seeking to maximize collaborative productivity focus on three key areas: reducing sync latency through proper network configuration, establishing governance frameworks that enable rather than restrict sharing, and investing in user training that emphasizes asynchronous collaboration patterns alongside real-time co-authoring."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "cloud-productivity",
@@ -192,7 +200,8 @@ const researchPapers: ResearchPaper[] = [
       "While cloud infrastructure significantly lowers local hardware maintenance costs and supports remote workforce access, it requires rigorous cloud administration. We suggest establishing strict conditional access parameters based on device health and geographic location.",
       "Data residency requirements present a growing challenge for multinational organizations. Microsoft 365 Multi-Geo capabilities allow tenants to specify the geographic location where each user's data is stored, ensuring compliance with data sovereignty regulations like the EU's GDPR, Australia's Privacy Act, and Brazil's LGPD. However, multi-geo configurations introduce complexity in search, eDiscovery, and cross-region collaboration that must be carefully managed.",
       "Our research concludes that organizations achieving the highest security postures treat Microsoft 365 security as a continuous program rather than a one-time configuration. Regular access reviews, quarterly DLP policy audits, monthly conditional access assessments, and ongoing user security awareness training form the foundation of a mature cloud security practice."
-    ]
+    ],
+    tabGroup: "microsoft"
   },
   {
     id: "office-evolution",
@@ -214,27 +223,116 @@ const researchPapers: ResearchPaper[] = [
       "The economic model shift from perpetual licensing to subscriptions has had profound implications for both Microsoft and its customers. For Microsoft, recurring revenue provides predictable cash flow and reduces the pressure to deliver blockbuster releases. For organizations, subscriptions lower the initial capital expenditure but require ongoing operational budget commitments. Our analysis of total cost of ownership (TCO) across 50 enterprise deployments shows that Microsoft 365 subscriptions cost approximately 15% more over a five-year period compared to perpetual licenses — but deliver significantly more value through continuous feature updates, cloud services, and reduced IT management overhead.",
       "The integration of Copilot AI capabilities in 2023 represents the latest evolutionary leap. By embedding large language models directly into Word, Excel, PowerPoint, Outlook, and Teams, Microsoft has positioned Microsoft 365 as an AI-first platform. This development would have been architecturally impossible under the old perpetual license model, as it requires continuous cloud connectivity, real-time data processing, and frequent model updates that can only be delivered through a SaaS infrastructure.",
       "Looking forward, the trajectory suggests further convergence between productivity tools, communication platforms, and AI assistants. The distinction between 'applications' is blurring as Loop components, Copilot agents, and collaborative canvases create fluid work experiences that transcend traditional application boundaries. Microsoft 365 is no longer a software suite — it is an evolving workplace operating system."
-    ]
+    ],
+    tabGroup: "microsoft"
+  },
+  // 4 QuickBooks Blog Articles
+  {
+    id: "qb-yearend-close",
+    title: "Preparing for Year-End Closeout Procedures",
+    category: "TAX COMPLIANCE",
+    date: "Aug 24, 2026",
+    readTime: "10 min read",
+    author: "Elena Rostov",
+    role: "Senior Accountant",
+    visual: "/blog-qb-yearend-close.png",
+    summary: "Detailed accounting checks to close your QuickBooks files cleanly. Learn how to verify vendor tax classifications, clear outstanding checks, match bank feeds, and format audit trails reports.",
+    content: [
+      "Closing fiscal books requires detailed precision to prevent year-end auditing problems. QuickBooks streamlines this process by automating ledger resets, but human oversight remains critical.",
+      "First, review your vendor classifications. Make sure all independent contractors have their W-9 tax IDs inputted and are flagged for 1099 compilation. Generating these lists early blocks January filing bottlenecks.",
+      "Second, reconcile all outstanding bank feed imports. Ensure there are no duplicate sync rows and that all deposits are classified. Run a test balance sheet to verify physical cash against QuickBooks checking register listings."
+    ],
+    tabGroup: "quickbooks"
+  },
+  {
+    id: "qb-duplicate-feeds",
+    title: "Fixing Bank Feed Duplication Issues",
+    category: "BANKING",
+    date: "Aug 20, 2026",
+    readTime: "6 min read",
+    author: "Marcus Vance",
+    role: "Merchant Integration Lead",
+    visual: "/blog-qb-duplicate-feeds.png",
+    summary: "How to resolve duplicate bank feeds without breaking previous months balance reconciliations sheets. Clean register ledger workflows.",
+    content: [
+      "Bank feed duplications can easily happen after bank migrations or sync updates. When these duplicates appear, they can distort net asset metrics.",
+      "To resolve this, navigate to your banking sync ledger. Sort by date and reference ID, identify duplicate blocks, and click 'Exclude' rather than delete to preserve transaction records histories.",
+      "Perform a physical statement audit for the target period. Validate bank statement ending cash matches register ledgers accurately before final reconciliation locking."
+    ],
+    tabGroup: "quickbooks"
+  },
+  {
+    id: "qb-bonus-rules",
+    title: "Setting Up Custom Bonus Pay Rules",
+    category: "PAYROLL",
+    date: "Aug 18, 2026",
+    readTime: "8 min read",
+    author: "Sarah Jenkins",
+    role: "HR Systems Analyst",
+    visual: "/blog-qb-bonus-rules.png",
+    summary: "A tutorial to assign separate tax withholding parameters to single employee bonus checks inside QuickBooks Payroll modules.",
+    content: [
+      "QuickBooks Payroll handles standard wage calculations automatically. However, custom bonus checks require special tax handling to satisfy IRS guidelines.",
+      "First, create a new Earnings Type in your Payroll preferences panel and label it 'Supplemental Bonus'. Set specific flat withholding tax parameters (typically 22% for IRS compliance).",
+      "Assign workers to the run, enter wage metrics, and process as a supplemental run to keep deductions separate from base monthly salaries runs."
+    ],
+    tabGroup: "quickbooks"
+  },
+  {
+    id: "qb-lan-hosting",
+    title: "Configuring Multi-User Mode Over LAN Hosting",
+    category: "SYSTEM SETUP",
+    date: "Aug 14, 2026",
+    readTime: "12 min read",
+    author: "David Vance",
+    role: "Database Administrator",
+    visual: "/blog-qb-lan-hosting.png",
+    summary: "Setting correct server database configurations and folders permissions rules to allow multi-user access without H202 network faults.",
+    content: [
+      "QuickBooks H202 error messages indicate multi-user connectivity blocks. By establishing proper host server configurations, you can resolve these LAN bugs.",
+      "Ensure the QuickBooks Database Server Manager is active on your host system. Scan company folders to allow multi-user monitoring.",
+      "Adjust local security tools and firewall settings rules to permit database ports connectivity to client workstations laptops."
+    ],
+    tabGroup: "quickbooks"
   }
 ];
-
 
 function ResearchHubContent() {
   const searchParams = useSearchParams();
   const paperQuery = searchParams.get("paper");
-  const [activePaperId, setActivePaperId] = useState(researchPapers[0].id);
+  const tabParam = searchParams.get("tab");
+  
+  // Set default tab group depending on parameters or default to microsoft
+  const [activeTabGroup, setActiveTabGroup] = useState<"microsoft" | "quickbooks">("microsoft");
+  const [activePaperId, setActivePaperId] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
+  // Sync parameters to states
   useEffect(() => {
-    if (paperQuery && researchPapers.some(p => p.id === paperQuery)) {
-      setActivePaperId(paperQuery);
+    if (tabParam === "quickbooks") {
+      setActiveTabGroup("quickbooks");
+    } else {
+      setActiveTabGroup("microsoft");
     }
-  }, [paperQuery]);
+  }, [tabParam]);
 
-  const categories = ["All", ...Array.from(new Set(researchPapers.map(p => p.category)))];
+  // Sync active paper selections based on active tab group
+  useEffect(() => {
+    const groupPapers = researchPapers.filter(p => p.tabGroup === activeTabGroup);
+    if (paperQuery && researchPapers.some(p => p.id === paperQuery && p.tabGroup === activeTabGroup)) {
+      setActivePaperId(paperQuery);
+    } else if (groupPapers.length > 0) {
+      setActivePaperId(groupPapers[0].id);
+    }
+  }, [paperQuery, activeTabGroup]);
 
-  const filteredPapers = researchPapers.filter(paper => {
+  // Categories based on selected tab group
+  const groupPapersAll = researchPapers.filter(p => p.tabGroup === activeTabGroup);
+  const categories = ["All", ...Array.from(new Set(groupPapersAll.map(p => p.category)))];
+
+  // Filtering
+  const filteredPapers = groupPapersAll.filter(paper => {
     const matchesCategory = selectedCategory === "All" || paper.category === selectedCategory;
     const matchesSearch = 
       paper.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -243,7 +341,7 @@ function ResearchHubContent() {
     return matchesCategory && matchesSearch;
   });
 
-  const activePaper = researchPapers.find(p => p.id === activePaperId) || researchPapers[0];
+  const activePaper = researchPapers.find(p => p.id === activePaperId) || groupPapersAll[0];
 
   return (
     <div className="pt-32 pb-24 bg-slate-50/50 min-h-screen relative overflow-hidden font-sans text-slate-800">
@@ -257,20 +355,48 @@ function ResearchHubContent() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         
         {/* Navigation & Header */}
-        <div className="space-y-6 mb-16">
+        <div className="space-y-6 mb-12">
           <Link 
             href="/" 
             className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-wider"
           >
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">
-              Blog & Research Publications
-            </h1>
-            <p className="text-zinc-500 text-sm sm:text-base leading-relaxed">
-              Explore in-depth technical analyses, case studies, updates, and tutorials regarding Microsoft 365 applications, cloud infrastructure, and collaborative workflows.
-            </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl font-semibold text-slate-900 tracking-tight mb-4">
+                Knowledge Hub & Publications
+              </h1>
+              <p className="text-zinc-500 text-sm sm:text-base leading-relaxed font-normal">
+                Explore in-depth technical analyses, case studies, updates, and tutorials from our editors.
+              </p>
+            </div>
+
+            {/* Product Switch Tabs */}
+            <div className="bg-white border border-zinc-200/80 p-1.5 rounded-2xl shadow-sm flex items-center gap-1.5 shrink-0 self-start md:self-auto">
+              <button
+                onClick={() => { setActiveTabGroup("microsoft"); setSelectedCategory("All"); }}
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 ${
+                  activeTabGroup === "microsoft"
+                    ? "bg-[#0A0F1D] text-white shadow-sm"
+                    : "text-zinc-650 hover:bg-zinc-50"
+                }`}
+              >
+                <Globe className="w-4 h-4" />
+                Microsoft 365
+              </button>
+              <button
+                onClick={() => { setActiveTabGroup("quickbooks"); setSelectedCategory("All"); }}
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 flex items-center gap-2 ${
+                  activeTabGroup === "quickbooks"
+                    ? "bg-[#0A0F1D] text-white shadow-sm"
+                    : "text-zinc-650 hover:bg-zinc-50"
+                }`}
+              >
+                <Newspaper className="w-4 h-4" />
+                QuickBooks
+              </button>
+            </div>
           </div>
         </div>
 
@@ -353,7 +479,7 @@ function ResearchHubContent() {
                 })
               ) : (
                 <div className="text-center py-12 px-4 bg-white/30 border border-dashed border-zinc-200 rounded-2xl">
-                  <p className="text-sm text-zinc-450 font-semibold">No publications match your search criteria.</p>
+                  <p className="text-sm text-zinc-455 font-semibold">No publications match your search criteria.</p>
                   <button 
                     onClick={() => { setSearchQuery(""); setSelectedCategory("All"); }}
                     className="mt-3 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors underline"
@@ -367,57 +493,71 @@ function ResearchHubContent() {
 
           {/* Right Column - Active Paper Deep-Dive Content (Span 7) */}
           <div className="lg:col-span-7 bg-white border border-zinc-200/80 rounded-2xl shadow-xl shadow-slate-100/50 overflow-hidden">
-            
-            {/* Visual Cover Header */}
-            <div className="h-64 relative bg-[#070F1E] overflow-hidden select-none border-b border-zinc-200/20">
-              <img 
-                src={activePaper.visual} 
-                alt={activePaper.title} 
-                className="w-full h-full object-cover opacity-90"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-              <span className="absolute bottom-4 left-6 bg-blue-600 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">
-                {activePaper.category}
-              </span>
-            </div>
-
-            {/* Content Details */}
-            <div className="p-8 md:p-10 space-y-8">
-              
-              {/* Meta information row */}
-              <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-400 font-bold border-b border-zinc-100 pb-6">
-                <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> {activePaper.date}</span>
-                <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {activePaper.readTime}</span>
-                <span className="flex items-center gap-1.5"><User className="w-4 h-4" /> By {activePaper.author}</span>
-              </div>
-
-              {/* Publication Header Title */}
-              <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
-                  {activePaper.title}
-                </h2>
-                <div className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-zinc-200/40">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
-                    <BookOpen className="w-5 h-5" />
+            {activePaper ? (
+              <>
+                {/* Visual Cover Header */}
+                <div className="h-64 relative bg-[#070F1E] overflow-hidden select-none border-b border-zinc-200/20">
+                  {/* Image with fallback */}
+                  {activePaper.visual ? (
+                    <img 
+                      src={activePaper.visual} 
+                      alt={activePaper.title} 
+                      className="w-full h-full object-cover opacity-90 relative z-10"
+                      onError={(e) => {
+                        (e.target as HTMLElement).style.display = "none";
+                      }}
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 flex items-center justify-center">
+                    <div className="opacity-15 w-full h-full absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-300 via-slate-950 to-slate-950" />
+                    <BookOpen className="w-20 h-20 text-white opacity-20" />
                   </div>
-                  <div>
-                    <h5 className="text-xs font-bold text-slate-800">{activePaper.author}</h5>
-                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">{activePaper.role}</p>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent z-20" />
+                  <span className="absolute bottom-4 left-6 bg-blue-600 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded z-30">
+                    {activePaper.category}
+                  </span>
                 </div>
-              </div>
 
-              {/* Research Text Content */}
-              <div className="space-y-5 text-sm sm:text-base text-slate-650 leading-relaxed font-medium">
-                {activePaper.content.map((paragraph, pIdx) => (
-                  <p key={pIdx}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+                {/* Content Details */}
+                <div className="p-8 md:p-10 space-y-8">
+                  
+                  {/* Meta information row */}
+                  <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-400 font-bold border-b border-zinc-100 pb-6">
+                    <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> {activePaper.date}</span>
+                    <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {activePaper.readTime}</span>
+                    <span className="flex items-center gap-1.5"><User className="w-4 h-4" /> By {activePaper.author}</span>
+                  </div>
 
-            </div>
+                  {/* Publication Header Title */}
+                  <div className="space-y-4">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+                      {activePaper.title}
+                    </h2>
+                    <div className="flex items-center gap-3 bg-slate-50 p-4 rounded-xl border border-zinc-200/40">
+                      <div className="w-10 h-10 rounded-full bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                        <BookOpen className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h5 className="text-xs font-bold text-slate-800">{activePaper.author}</h5>
+                        <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">{activePaper.role}</p>
+                      </div>
+                    </div>
+                  </div>
 
+                  {/* Research Text Content */}
+                  <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                    {activePaper.content.map((paragraph, pIdx) => (
+                      <p key={pIdx}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
+                </div>
+              </>
+            ) : (
+              <div className="p-10 text-center text-zinc-450">Please select an article to read.</div>
+            )}
           </div>
 
         </div>
@@ -429,7 +569,7 @@ function ResearchHubContent() {
 
 export default function ResearchHub() {
   return (
-    <Suspense fallback={<div className="pt-32 text-center text-zinc-400">Loading Research Hub...</div>}>
+    <Suspense fallback={<div className="pt-32 text-center text-zinc-400">Loading Knowledge Hub...</div>}>
       <ResearchHubContent />
     </Suspense>
   );

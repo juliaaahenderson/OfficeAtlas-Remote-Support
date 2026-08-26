@@ -59,17 +59,32 @@ export default function Footer() {
               <ul className="space-y-4 text-sm">
                 <li>
                   <Link href="/products" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Products
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> M365 Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/quickbooks/products" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> QuickBooks Products
                   </Link>
                 </li>
                 <li>
                   <Link href="/compare" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Comparisons
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> M365 Compare
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/quickbooks/compare" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> QuickBooks Compare
                   </Link>
                 </li>
                 <li>
                   <Link href="/guides" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Guides
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> M365 Guides
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/quickbooks/guides" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> QuickBooks Guides
                   </Link>
                 </li>
                 <li>
@@ -101,8 +116,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={isQuickbooks ? "/quickbooks#research" : "/#research"} className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Research
+                  <Link href="/blog" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Publications
                   </Link>
                 </li>
               </ul>
@@ -129,8 +144,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href={isQuickbooks ? "/quickbooks#disclaimer" : "/#disclaimer"} className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
-                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Disclaimer
+                  <Link href="/cookies" className="flex items-center gap-2 text-[#A0AEC0] hover:text-white transition-colors duration-250 font-normal">
+                    <ChevronRight className="w-3.5 h-3.5 text-[#0078D4]" /> Cookie Policy
                   </Link>
                 </li>
               </ul>
@@ -145,7 +160,7 @@ export default function Footer() {
           <div className="max-w-3xl">
             {isQuickbooks ? (
               <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
-                Disclaimer: OfficeAtlas is an independent informational and research platform. QuickBooks and related product names, logos, and trademarks are the property of Intuit Inc. OfficeAtlas is not affiliated with, endorsed by, or sponsored by Intuit. Product information, pricing, availability, and features may change and should be verified with official sources.
+                Disclaimer: OfficeAtlas is an independent informational and research platform. QuickBooks and related product names, logos, and trademarks are the property of Intuit Inc. Product information, pricing, availability, and features may change and should be verified with official sources.
               </p>
             ) : (
               <p className="text-xs text-[#8A99AD] leading-relaxed font-normal">
