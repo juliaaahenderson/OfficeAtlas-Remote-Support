@@ -511,12 +511,12 @@ export default function ProductDetailsPage({ params }: { params: Promise<{ produ
                   <text x="340" y="266" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontWeight="700" fontFamily="system-ui">Operations</text>
                   
                   {/* Shield/security badge */}
-                  <path d="M370 35 L385 42 L385 58 Q385 70 370 78 Q355 70 355 58 L355 42 Z" fill="#0F766E" opacity="0.08" stroke="#0F766E" strokeWidth="1" opacity="0.3"/>
+                  <path d="M370 35 L385 42 L385 58 Q385 70 370 78 Q355 70 355 58 L355 42 Z" fill="#0F766E" stroke="#0F766E" strokeWidth="1" opacity="0.3"/>
                   <path d="M365 53 L370 58 L378 48" stroke="#0F766E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.5"/>
                   <text x="370" y="92" textAnchor="middle" fill="#9CA3AF" fontSize="10" fontWeight="700" fontFamily="system-ui">40 Users</text>
                   
                   {/* Users count badge */}
-                  <rect x="15" y="35" width="60" height="28" rx="8" fill="#0F766E" opacity="0.06" stroke="#0F766E" strokeWidth="0.8" opacity="0.2"/>
+                  <rect x="15" y="35" width="60" height="28" rx="8" fill="#0F766E" stroke="#0F766E" strokeWidth="0.8" opacity="0.2"/>
                   <circle cx="32" cy="46" r="4" fill="#0F766E" opacity="0.2"/>
                   <circle cx="42" cy="46" r="4" fill="#0F766E" opacity="0.3"/>
                   <circle cx="52" cy="46" r="4" fill="#0F766E" opacity="0.4"/>

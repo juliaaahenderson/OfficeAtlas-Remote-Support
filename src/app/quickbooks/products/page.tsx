@@ -144,7 +144,7 @@ export default function ProductsDirectory() {
             <div className="hidden lg:flex justify-end">
               <svg width="420" height="240" viewBox="0 0 420 280" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* Central hub circle */}
-                <circle cx="210" cy="140" r="38" fill="#0078D4" opacity="0.06" stroke="#0078D4" strokeWidth="1.2" opacity="0.2"/>
+                <circle cx="210" cy="140" r="38" fill="#0078D4" stroke="#0078D4" strokeWidth="1.2" opacity="0.2"/>
                 <circle cx="210" cy="140" r="20" fill="#0078D4" opacity="0.1"/>
                 <text x="210" y="136" textAnchor="middle" fill="#0078D4" fontSize="10" fontWeight="800" fontFamily="system-ui">Quick</text>
                 <text x="210" y="148" textAnchor="middle" fill="#0078D4" fontSize="10" fontWeight="800" fontFamily="system-ui">Books</text>
