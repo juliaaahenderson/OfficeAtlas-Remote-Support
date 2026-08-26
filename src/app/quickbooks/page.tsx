@@ -522,14 +522,14 @@ export default function QuickBooksHub() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
                 href="/quickbooks/products"
-                className="px-7 py-3.5 text-[10px] font-bold text-white bg-[#0078D4] hover:bg-[#002060] rounded-lg transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#002060] text-white text-[14px] font-bold rounded-lg hover:bg-[#002060]/90 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
               >
                 Explore QuickBooks
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
               <Link
                 href="/quickbooks/guides"
-                className="px-7 py-3.5 text-[10px] font-bold text-[#0078D4] bg-white hover:bg-blue-50/20 border border-[#0078D4]/40 rounded-lg transition-all duration-300 shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-zinc-700 text-[14px] font-bold rounded-lg border border-zinc-200 hover:border-zinc-300 transition-all duration-300 cursor-pointer"
               >
                 Browse Guides
               </Link>
