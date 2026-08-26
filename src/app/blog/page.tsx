@@ -238,9 +238,11 @@ const researchPapers: ResearchPaper[] = [
     visual: "/blog-qb-yearend-close.png",
     summary: "Detailed accounting checks to close your QuickBooks files cleanly. Learn how to verify vendor tax classifications, clear outstanding checks, match bank feeds, and format audit trails reports.",
     content: [
-      "Closing fiscal books requires detailed precision to prevent year-end auditing problems. QuickBooks streamlines this process by automating ledger resets, but human oversight remains critical.",
-      "First, review your vendor classifications. Make sure all independent contractors have their W-9 tax IDs inputted and are flagged for 1099 compilation. Generating these lists early blocks January filing bottlenecks.",
-      "Second, reconcile all outstanding bank feed imports. Ensure there are no duplicate sync rows and that all deposits are classified. Run a test balance sheet to verify physical cash against QuickBooks checking register listings."
+      "Closing fiscal books requires detailed precision to prevent year-end auditing problems. QuickBooks streamlines this process by automating ledger resets, but human oversight remains critical to ensure data integrity and structural accuracy across fiscal cycles.",
+      "First, review your vendor classifications. Make sure all independent contractors have their W-9 tax IDs inputted and are flagged for 1099 compilation. Generating these lists early blocks January filing bottlenecks and prevents penalty liabilities for incomplete documentation.",
+      "Second, reconcile all outstanding bank feed imports. Ensure there are no duplicate sync rows and that all deposits are classified. Run a test balance sheet to verify physical cash against QuickBooks checking register listings, paying close attention to uncleared checks that have been outstanding for more than 90 days.",
+      "Third, run a complete audit trail report to detect any deleted or modified transactions from closed periods. QuickBooks maintains a detailed log of every user action; comparing this log against physical invoice files helps identify unauthorized adjustments. Once verified, apply a closing date password in your company file preferences to lock the period from accidental edits.",
+      "Finally, consult with your external CPA to review the preliminary trial balance and execute adjusting journal entries for depreciation, amortization, and bad debt provisions. Once these adjustments are posted, you can export the final tax-ready reports and prepare the digital transfer files securely."
     ],
     tabGroup: "quickbooks"
   },
@@ -255,9 +257,10 @@ const researchPapers: ResearchPaper[] = [
     visual: "/blog-qb-duplicate-feeds.png",
     summary: "How to resolve duplicate bank feeds without breaking previous months balance reconciliations sheets. Clean register ledger workflows.",
     content: [
-      "Bank feed duplications can easily happen after bank migrations or sync updates. When these duplicates appear, they can distort net asset metrics.",
-      "To resolve this, navigate to your banking sync ledger. Sort by date and reference ID, identify duplicate blocks, and click 'Exclude' rather than delete to preserve transaction records histories.",
-      "Perform a physical statement audit for the target period. Validate bank statement ending cash matches register ledgers accurately before final reconciliation locking."
+      "Bank feed duplications can easily happen after bank migrations, sync service updates, or connection protocol changes. When these duplicates appear, they double-count income or expenses and distort your net asset metrics.",
+      "To resolve this, navigate to your banking sync ledger screen. Sort the transactions by date, amount, and reference ID. Identify the duplicate blocks, select them in batches, and click 'Exclude' rather than delete to preserve the underlying audit trail logs while cleaning up your active feed.",
+      "Perform a physical statement audit for the target period. Validate that the bank statement ending cash matches your QuickBooks register ledgers accurately before executing the final reconciliation lock. This ensures that previous months' reconciliations remain untampered.",
+      "If the duplication persists across subsequent syncs, disconnect the bank account feed completely in your preferences, clear your browser cookies, and reconnect the bank using the updated OAuth API channel. This refreshes the transaction fetch pointer and prevents the feed from pulling historical segments that have already been matched."
     ],
     tabGroup: "quickbooks"
   },
@@ -272,9 +275,10 @@ const researchPapers: ResearchPaper[] = [
     visual: "/blog-qb-bonus-rules.png",
     summary: "A tutorial to assign separate tax withholding parameters to single employee bonus checks inside QuickBooks Payroll modules.",
     content: [
-      "QuickBooks Payroll handles standard wage calculations automatically. However, custom bonus checks require special tax handling to satisfy IRS guidelines.",
-      "First, create a new Earnings Type in your Payroll preferences panel and label it 'Supplemental Bonus'. Set specific flat withholding tax parameters (typically 22% for IRS compliance).",
-      "Assign workers to the run, enter wage metrics, and process as a supplemental run to keep deductions separate from base monthly salaries runs."
+      "QuickBooks Payroll handles standard hourly and salaried wage calculations automatically. However, custom bonus checks require special tax handling to satisfy IRS guidelines on supplemental wage withholding.",
+      "First, create a new Earnings Type in your Payroll preferences panel and label it 'Supplemental Bonus'. Set specific flat withholding tax parameters (typically a flat 22% rate for federal taxes to comply with IRS supplemental guidelines) instead of using the standard aggregate withholding tables.",
+      "Assign the designated workers to the pay run, enter the respective bonus metrics, and process the run as a supplemental payroll event. This keeps tax deductions completely separate from base monthly salaries, preventing employees from being under-withheld or over-withheld on their regular paychecks.",
+      "Always verify state and local tax withholding rules for supplemental checks in your jurisdiction, as some states require flat-rate withholding while others allow aggregate calculations. Once processed, file the payroll tax liability report to schedule the tax deposit before the next scheduled deadline."
     ],
     tabGroup: "quickbooks"
   },
@@ -289,9 +293,10 @@ const researchPapers: ResearchPaper[] = [
     visual: "/blog-qb-lan-hosting.png",
     summary: "Setting correct server database configurations and folders permissions rules to allow multi-user access without H202 network faults.",
     content: [
-      "QuickBooks H202 error messages indicate multi-user connectivity blocks. By establishing proper host server configurations, you can resolve these LAN bugs.",
-      "Ensure the QuickBooks Database Server Manager is active on your host system. Scan company folders to allow multi-user monitoring.",
-      "Adjust local security tools and firewall settings rules to permit database ports connectivity to client workstations laptops."
+      "QuickBooks H202 error messages indicate multi-user connectivity blocks. This happens when client workstations cannot communicate with the database manager hosting the company file on the local network (LAN).",
+      "To resolve this, ensure the QuickBooks Database Server Manager is installed and actively running on your host server system. Open the service manager, scan the corporate company directories, and verify that the monitoring status shows active tracking for your database files (.QBW).",
+      "Adjust folder sharing permissions on the host system. The QuickBooks group requires full Read/Write permissions for both system accounts and active local network users. Check that the QuickBooks ports are not blocked by security software or Windows Firewall.",
+      "Configure your firewall rules on the server and client computers to permit database ports (specifically incoming and outgoing TCP rules for QuickBooks services). Test host communication using the ping command from the client workstation to verify network connectivity, and switch to Multi-User mode inside the file menu."
     ],
     tabGroup: "quickbooks"
   }

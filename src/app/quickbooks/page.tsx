@@ -294,32 +294,32 @@ export default function QuickBooksHub() {
         return (
           <div className="w-full h-full flex flex-col justify-between p-5 text-[#0A0F1D] font-sans">
             <div className="space-y-3">
-              <div className="text-[14px] font-bold text-zinc-400 uppercase tracking-widest">PRODUCT GRID SELECTOR</div>
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">PRODUCT GRID SELECTOR</div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="text-[15px] font-bold">QuickBooks Online</span>
+                    <span className="text-[11px] font-bold">QuickBooks Online</span>
                   </div>
-                  <span className="text-[14px] font-bold text-zinc-500">$90/mo</span>
+                  <span className="text-[10px] font-bold text-zinc-500">$90/mo</span>
                 </div>
                 <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-blue-500" />
-                    <span className="text-[15px] font-bold">QuickBooks Desktop</span>
+                    <span className="text-[11px] font-bold">QuickBooks Desktop</span>
                   </div>
-                  <span className="text-[14px] font-bold text-zinc-500">$649/yr</span>
+                  <span className="text-[10px] font-bold text-zinc-500">$649/yr</span>
                 </div>
                 <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-zinc-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-purple-500" />
-                    <span className="text-[15px] font-bold">QuickBooks Enterprise</span>
+                    <span className="text-[11px] font-bold">QuickBooks Enterprise</span>
                   </div>
-                  <span className="text-[14px] font-bold text-zinc-500">Contact</span>
+                  <span className="text-[10px] font-bold text-zinc-500">Contact</span>
                 </div>
               </div>
             </div>
-            <p className="text-[15px] text-zinc-400 font-semibold leading-relaxed">
+            <p className="text-[11px] text-zinc-400 font-semibold leading-relaxed">
               * Rates reflect Intuit official pricing indices.
             </p>
           </div>
@@ -328,8 +328,8 @@ export default function QuickBooksHub() {
         return (
           <div className="w-full h-full flex flex-col justify-between p-5 text-[#0A0F1D] font-sans">
             <div className="space-y-3">
-              <div className="text-[14px] font-bold text-zinc-400 uppercase tracking-widest">COMPARISON MATRIX</div>
-              <div className="border border-zinc-200/80 rounded-xl overflow-hidden bg-white text-[14px] font-semibold">
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">COMPARISON MATRIX</div>
+              <div className="border border-zinc-200/80 rounded-xl overflow-hidden bg-white text-[10px] font-semibold">
                 <div className="grid grid-cols-3 bg-zinc-50 border-b border-zinc-250/60 p-2 text-zinc-400 font-bold">
                   <span>Feature</span>
                   <span className="text-center">Online</span>
@@ -352,7 +352,7 @@ export default function QuickBooksHub() {
                 </div>
               </div>
             </div>
-            <p className="text-[15px] text-zinc-400 font-semibold leading-relaxed">
+            <p className="text-[11px] text-zinc-400 font-semibold leading-relaxed">
               Compare core capability differences side-by-side.
             </p>
           </div>
@@ -381,46 +381,46 @@ export default function QuickBooksHub() {
         return (
           <div className="w-full h-full flex flex-col justify-between p-5 text-[#0A0F1D] font-sans">
             <div className="space-y-3">
-              <div className="text-[14px] font-bold text-zinc-400 uppercase tracking-widest">SETUP ROADMAP</div>
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">SETUP ROADMAP</div>
               <div className="space-y-3 pl-2 relative border-l border-zinc-200">
                 <div className="relative">
                   <div className="absolute -left-[13px] top-0.5 w-2 h-2 rounded-full bg-emerald-500" />
-                  <div className="text-[15px] font-bold text-emerald-600 flex items-center gap-1">
+                  <div className="text-[11px] font-bold text-emerald-600 flex items-center gap-1">
                     1. Connect Bank Feeds <CheckCircle2 className="w-3 h-3 text-emerald-500 shrink-0" />
                   </div>
-                  <div className="text-[15px] text-zinc-400">Establish API handshake feeds</div>
+                  <div className="text-[11px] text-zinc-400">Establish API handshake feeds</div>
                 </div>
                 <div className="relative">
                   <div className="absolute -left-[13px] top-0.5 w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                  <div className="text-[15px] font-bold text-blue-600">
+                  <div className="text-[11px] font-bold text-blue-600">
                     2. Config Chart of Accounts
                   </div>
-                  <div className="text-[15px] text-zinc-400">Map expense ledger headers</div>
+                  <div className="text-[11px] text-zinc-400">Map expense ledger headers</div>
                 </div>
                 <div className="relative">
                   <div className="absolute -left-[13px] top-0.5 w-2 h-2 rounded-full bg-zinc-300" />
-                  <div className="text-[15px] font-bold text-zinc-400">
+                  <div className="text-[11px] font-bold text-zinc-400">
                     3. Align Tax Rules profiles
                   </div>
                 </div>
               </div>
             </div>
-            <p className="text-[15px] text-zinc-400 font-semibold leading-relaxed">
+            <p className="text-[11px] text-zinc-400 font-semibold leading-relaxed">
               Step-by-step integration roadmaps.
             </p>
           </div>
         );
       case 5: // Troubleshooting (Terminal diagnostic logs)
         return (
-          <div className="w-full h-full flex flex-col justify-between p-4 bg-zinc-900 rounded-xl text-zinc-300 font-mono text-[15px] leading-relaxed select-none">
+          <div className="w-full h-full flex flex-col justify-between p-4 bg-zinc-900 rounded-xl text-zinc-300 font-mono text-[11px] leading-relaxed select-none">
             <div className="space-y-2">
               <div className="flex items-center gap-1.5 border-b border-zinc-800 pb-2">
                 <div className="w-2 h-2 rounded-full bg-rose-500" />
                 <div className="w-2 h-2 rounded-full bg-amber-500" />
                 <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-zinc-500 text-[15px] pl-2">DIAGNOSTIC TERMINAL</span>
+                <span className="text-zinc-500 text-[11px] pl-2">DIAGNOSTIC TERMINAL</span>
               </div>
-              <div className="space-y-1 pt-1 font-semibold text-[15px] sm:text-[15px]">
+              <div className="space-y-1 pt-1 font-semibold text-[11px] sm:text-[11px]">
                 <div><span className="text-blue-400">[INFO]</span> Connecting QuickBooks server...</div>
                 <div><span className="text-amber-400">[WARN]</span> Firewall blocked ports detected</div>
                 <div className="text-rose-400"><span className="text-rose-500 font-bold">[ERR]</span> Diagnostic Code: H202</div>
@@ -429,7 +429,7 @@ export default function QuickBooksHub() {
                 </div>
               </div>
             </div>
-            <div className="text-[15px] text-zinc-500 border-t border-zinc-800 pt-2 font-sans font-semibold">
+            <div className="text-[11px] text-zinc-500 border-t border-zinc-800 pt-2 font-sans font-semibold">
               Diagnostic code logs database.
             </div>
           </div>
@@ -438,7 +438,7 @@ export default function QuickBooksHub() {
         return (
           <div className="w-full h-full flex flex-col justify-between p-5 text-[#0A0F1D] font-sans">
             <div className="space-y-2.5">
-              <div className="text-[14px] font-bold text-zinc-400 uppercase tracking-widest">SUBSCRIPTION GROWTH INDEX</div>
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">SUBSCRIPTION GROWTH INDEX</div>
               <div className="relative h-24 w-full flex items-end justify-between border-b border-zinc-200 pb-1">
                 {/* SVG Line Graph */}
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 280 90">
@@ -466,12 +466,12 @@ export default function QuickBooksHub() {
                   {/* Active dot */}
                   <circle cx="270" cy="15" r="4.5" fill="#0078D4" stroke="#fff" strokeWidth="1.5" />
                 </svg>
-                <span className="text-[15px] text-zinc-400 relative z-10">2024</span>
-                <span className="text-[15px] text-zinc-400 relative z-10">2025</span>
-                <span className="text-[15px] text-zinc-400 relative z-10">2026 (Est)</span>
+                <span className="text-[11px] text-zinc-400 relative z-10">2024</span>
+                <span className="text-[11px] text-zinc-400 relative z-10">2025</span>
+                <span className="text-[11px] text-zinc-400 relative z-10">2026 (Est)</span>
               </div>
             </div>
-            <div className="flex justify-between items-center text-[15px] font-bold">
+            <div className="flex justify-between items-center text-[11px] font-bold">
               <span className="text-zinc-400">TRAJECTORY</span>
               <span className="text-rose-600">+18.4% YoY Hikes</span>
             </div>
@@ -481,21 +481,21 @@ export default function QuickBooksHub() {
         return (
           <div className="w-full h-full flex flex-col justify-between p-5 text-[#0A0F1D] font-sans">
             <div className="space-y-3">
-              <div className="text-[14px] font-bold text-zinc-400 uppercase tracking-widest">EDITORIAL BRIEF</div>
+              <div className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">EDITORIAL BRIEF</div>
               <div className="bg-white p-3.5 rounded-xl border border-zinc-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.02)] space-y-1.5">
-                <span className="text-[15px] font-extrabold text-[#0078D4] bg-blue-50 px-2 py-0.5 rounded uppercase tracking-wider">
+                <span className="text-[11px] font-extrabold text-[#0078D4] bg-blue-50 px-2 py-0.5 rounded uppercase tracking-wider">
                   TAX COMPLIANCE
                 </span>
                 <h4 className="text-sm font-bold leading-snug">
                   Reconciling QuickBooks Online Bank Feeds for Q4 Close
                 </h4>
-                <p className="text-[15px] text-zinc-400 leading-normal font-medium line-clamp-2">
+                <p className="text-[11px] text-zinc-400 leading-normal font-medium line-clamp-2">
                   Learn step-by-step procedures for matching ledger logs, identifying sync discrepancies, and exporting reports.
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-1.5 text-[15px] text-zinc-400 font-semibold">
-              <div className="w-4 h-4 rounded-full bg-zinc-200 flex items-center justify-center font-bold text-[15px]">SJ</div>
+            <div className="flex items-center gap-1.5 text-[11px] text-zinc-400 font-semibold">
+              <div className="w-4 h-4 rounded-full bg-zinc-200 flex items-center justify-center font-bold text-[11px]">SJ</div>
               <span>Sarah Jenkins, CPA • Aug 2026</span>
             </div>
           </div>
@@ -512,7 +512,7 @@ export default function QuickBooksHub() {
       <section className="relative py-20 px-6 md:px-10 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
-            <h1 className="text-4xl sm:text-[44px] lg:text-[46px] font-sans font-semibold tracking-tight text-[#0A0F1D] leading-[1.1] mb-8">
+            <h1 className="text-4xl sm:text-[44px] lg:text-[46px] font-sans font-semibold tracking-tight text-[#0A0F1D] leading-[1.25] mb-6">
               Everything QuickBooks,<br />
               in one <span className="text-[#0078D4]">clear</span> place.
             </h1>
@@ -522,14 +522,14 @@ export default function QuickBooksHub() {
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
                 href="/quickbooks/products"
-                className="px-7 py-3.5 text-[14px] font-bold text-white bg-[#0078D4] hover:bg-[#002060] rounded-lg transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow"
+                className="px-7 py-3.5 text-[10px] font-bold text-white bg-[#0078D4] hover:bg-[#002060] rounded-lg transition-all duration-300 flex items-center gap-2 shadow-sm hover:shadow"
               >
                 Explore QuickBooks
                 <ArrowRight className="w-4 h-4 text-white" />
               </Link>
               <Link
                 href="/quickbooks/guides"
-                className="px-7 py-3.5 text-[14px] font-bold text-[#0078D4] bg-white hover:bg-blue-50/20 border border-[#0078D4]/40 rounded-lg transition-all duration-300 shadow-sm"
+                className="px-7 py-3.5 text-[10px] font-bold text-[#0078D4] bg-white hover:bg-blue-50/20 border border-[#0078D4]/40 rounded-lg transition-all duration-300 shadow-sm"
               >
                 Browse Guides
               </Link>
@@ -632,8 +632,8 @@ export default function QuickBooksHub() {
 
                   {/* Top Status Header */}
                   <div className="flex justify-between items-center relative z-10">
-                    <span className="text-[15px] font-extrabold tracking-widest text-zinc-400 uppercase">ECOSYSTEM WIDGET</span>
-                    <span className="inline-flex items-center gap-1 text-[15px] font-bold bg-[#0078D4]/5 text-[#0078D4] px-2.5 py-0.5 rounded-full border border-[#0078D4]/10">
+                    <span className="text-[11px] font-extrabold tracking-widest text-zinc-400 uppercase">ECOSYSTEM WIDGET</span>
+                    <span className="inline-flex items-center gap-1 text-[11px] font-bold bg-[#0078D4]/5 text-[#0078D4] px-2.5 py-0.5 rounded-full border border-[#0078D4]/10">
                       <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" /> Synchronized
                     </span>
                   </div>
@@ -644,13 +644,13 @@ export default function QuickBooksHub() {
                   </div>
 
                   {/* Bottom Console Metadata Panel */}
-                  <div className="bg-white/90 backdrop-blur-sm border border-zinc-200/60 rounded-xl p-3 space-y-2 text-[14px] font-semibold text-zinc-650 relative z-10 shadow-sm">
+                  <div className="bg-white/90 backdrop-blur-sm border border-zinc-200/60 rounded-xl p-3 space-y-2 text-[10px] font-semibold text-zinc-650 relative z-10 shadow-sm">
                     <div className="flex justify-between items-center">
                       <span className="text-zinc-400 font-bold uppercase tracking-wider">{currentTab.metaLabel}</span>
                       <span className="text-[#0A0F1D] font-bold">{currentTab.metaValue}</span>
                     </div>
                     <div className="h-px bg-zinc-150/60" />
-                    <div className="flex justify-between items-center text-[15px] text-zinc-400">
+                    <div className="flex justify-between items-center text-[11px] text-zinc-400">
                       <span>Server Integration</span>
                       <span className="text-emerald-600 font-extrabold uppercase tracking-wide">SECURE SSL</span>
                     </div>
@@ -724,7 +724,7 @@ export default function QuickBooksHub() {
                 <div className="w-11 h-11 rounded-full bg-gradient-to-tr from-[#0078D4] to-blue-600 text-white flex items-center justify-center shadow-md">
                   <Shield className="w-5 h-5" />
                 </div>
-                <span className="text-[15px] font-extrabold text-zinc-400 tracking-widest uppercase">CORE</span>
+                <span className="text-[11px] font-extrabold text-zinc-400 tracking-widest uppercase">CORE</span>
               </div>
 
               {/* Exact Hexagonal Orbit Nodes Mapping */}
@@ -765,7 +765,7 @@ export default function QuickBooksHub() {
                         <NodeIcon className="w-4.5 h-4.5" />
                       </div>
                       <div className="space-y-0.5 px-1">
-                        <h4 className="text-[15px] font-extrabold text-[#0A0F1D] leading-tight tracking-tight">{p.name}</h4>
+                        <h4 className="text-[11px] font-extrabold text-[#0A0F1D] leading-tight tracking-tight">{p.name}</h4>
                         <p className="text-[11px] text-zinc-400 font-semibold leading-relaxed line-clamp-2 max-w-[105px]">
                           {p.desc}
                         </p>
@@ -898,7 +898,7 @@ export default function QuickBooksHub() {
             
             {/* Monitor Illustration Checklist Visual */}
             <div className="bg-[#FAFBFD] border border-zinc-200/60 p-6 rounded-2xl flex items-center justify-between gap-6 max-w-md">
-              <div className="space-y-2 font-semibold text-[15px] text-zinc-650">
+              <div className="space-y-2 font-semibold text-[11px] text-zinc-650">
                 <div className="flex items-center gap-2 text-emerald-600">
                   <CheckCircle2 className="w-3.5 h-3.5" /> Create your company
                 </div>
@@ -917,7 +917,7 @@ export default function QuickBooksHub() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4 text-[15px] text-zinc-400 font-bold">
+            <div className="flex items-center gap-4 text-[11px] text-zinc-400 font-bold">
               <span className="bg-zinc-50 px-2.5 py-1 rounded border border-zinc-150">Beginner Friendly</span>
               <span>10 min read</span>
             </div>
@@ -1096,22 +1096,22 @@ export default function QuickBooksHub() {
               <div className="bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-150/60 p-4 rounded-xl flex items-start gap-3 transition-colors duration-200">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <h4 className="text-[15px] font-bold text-[#0A0F1D]">Verify Windows Local Admin Account</h4>
-                  <p className="text-[15px] text-zinc-500 font-medium">Installers must execute with elevated admin permissions to register msxml database units.</p>
+                  <h4 className="text-[11px] font-bold text-[#0A0F1D]">Verify Windows Local Admin Account</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Installers must execute with elevated admin permissions to register msxml database units.</p>
                 </div>
               </div>
               <div className="bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-150/60 p-4 rounded-xl flex items-start gap-3 transition-colors duration-200">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <h4 className="text-[15px] font-bold text-[#0A0F1D]">Sync System Clock with Internet Time</h4>
-                  <p className="text-[15px] text-zinc-500 font-medium">Mismatched workstation clocks trigger license loops during verification keys registry validation.</p>
+                  <h4 className="text-[11px] font-bold text-[#0A0F1D]">Sync System Clock with Internet Time</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Mismatched workstation clocks trigger license loops during verification keys registry validation.</p>
                 </div>
               </div>
               <div className="bg-zinc-50/50 hover:bg-zinc-50 border border-zinc-150/60 p-4 rounded-xl flex items-start gap-3 transition-colors duration-200">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <h4 className="text-[15px] font-bold text-[#0A0F1D]">Open Database Service Ports (80, 443)</h4>
-                  <p className="text-[15px] text-zinc-500 font-medium">Ensure firewall configuration allows host server communication on standard network paths.</p>
+                  <h4 className="text-[11px] font-bold text-[#0A0F1D]">Open Database Service Ports (80, 443)</h4>
+                  <p className="text-[11px] text-zinc-500 font-medium">Ensure firewall configuration allows host server communication on standard network paths.</p>
                 </div>
               </div>
             </div>
@@ -1151,7 +1151,7 @@ export default function QuickBooksHub() {
                 <h4 className="text-sm font-extrabold text-[#0A0F1D] truncate group-hover:text-[#0078D4] transition-colors leading-snug">
                   How to Fix Common QuickBooks Installation Errors
                 </h4>
-                <div className="flex items-center gap-3 text-[15px] text-zinc-450 font-bold">
+                <div className="flex items-center gap-3 text-[11px] text-zinc-450 font-bold">
                   <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> Aug 24, 2026</span>
                   <span>•</span>
                   <span>5 min read</span>
@@ -1173,7 +1173,7 @@ export default function QuickBooksHub() {
                 <h4 className="text-sm font-extrabold text-[#0A0F1D] truncate group-hover:text-[#0078D4] transition-colors leading-snug">
                   How to Reconcile Bank Accounts in QuickBooks
                 </h4>
-                <div className="flex items-center gap-3 text-[15px] text-zinc-455 font-bold">
+                <div className="flex items-center gap-3 text-[11px] text-zinc-455 font-bold">
                   <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> Aug 20, 2026</span>
                   <span>•</span>
                   <span>6 min read</span>
@@ -1195,7 +1195,7 @@ export default function QuickBooksHub() {
                 <h4 className="text-sm font-extrabold text-[#0A0F1D] truncate group-hover:text-[#0078D4] transition-colors leading-snug">
                   How to Activate QuickBooks Desktop Step by Step
                 </h4>
-                <div className="flex items-center gap-3 text-[15px] text-zinc-450 font-bold">
+                <div className="flex items-center gap-3 text-[11px] text-zinc-450 font-bold">
                   <span className="flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> Aug 12, 2026</span>
                   <span>•</span>
                   <span>7 min read</span>
