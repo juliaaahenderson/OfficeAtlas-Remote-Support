@@ -38,7 +38,6 @@ export default function Navbar({ onSearchClick }: NavbarProps) {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
     { name: "Guides", href: "/guides" },
     { name: "Compare", href: "/compare" },
