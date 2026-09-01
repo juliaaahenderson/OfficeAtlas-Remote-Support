@@ -1,27 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+import RemoteSupportHomepage from "@/components/remote-support/RemoteSupportHomepage";
 
-import Hero from "@/components/Hero";
-import EcosystemMap from "@/components/EcosystemMap";
-import FeaturedGrid from "@/components/FeaturedGrid";
-import Comparison from "@/components/Comparison";
-import LearningPath from "@/components/LearningPath";
-import ResearchInsights from "@/components/ResearchInsights";
-import InstallationGuide from "@/components/InstallationGuide";
-import LatestBlogs from "@/components/LatestBlogs";
-import Newsletter from "@/components/Newsletter";
+export const metadata: Metadata = {
+  title: "Microsoft Office Remote Support & Help | OfficeAtlas",
+  description:
+    "Get help with Microsoft Office and Microsoft 365 installation, activation, setup, updates, sign-in issues, and common troubleshooting problems.",
+};
 
 export default function Home() {
-  return (
-    <main className="flex-1 flex flex-col">
-      <Hero />
-      <EcosystemMap />
-      <FeaturedGrid />
-      <Comparison />
-      <LearningPath />
-      <ResearchInsights />
-      <InstallationGuide />
-      <LatestBlogs />
-      <Newsletter />
-    </main>
-  );
+  return <RemoteSupportHomepage />;
 }
