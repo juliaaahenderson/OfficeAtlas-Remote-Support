@@ -51,7 +51,7 @@ export default function WhyOfficeAtlasTrust() {
       <div className="max-w-7xl mx-auto px-6 md:px-10 space-y-16">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
+        <div className="text-center max-w-2xl mx-auto space-y-3">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}

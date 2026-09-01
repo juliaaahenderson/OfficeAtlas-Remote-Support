@@ -148,7 +148,7 @@ export default function OfficeAppSupport() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-14">
+        <div className="text-center max-w-4xl mx-auto space-y-3 mb-14">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}

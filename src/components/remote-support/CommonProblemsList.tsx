@@ -63,11 +63,11 @@ export default function CommonProblemsList() {
       <div className="max-w-5xl mx-auto px-6 md:px-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-14">
+        <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <h2 className="text-3xl sm:text-4xl font-semibold text-[#0A0F1D] tracking-tight">
             Having Trouble With Office?
           </h2>
-          <p className="text-base text-zinc-600 font-normal leading-relaxed max-w-xl mx-auto">
+          <p className="text-base text-zinc-600 font-normal leading-relaxed">
             Review instant diagnostic quick tips below for common Microsoft Office error scenarios.
           </p>
         </div>

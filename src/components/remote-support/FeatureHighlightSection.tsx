@@ -22,7 +22,7 @@ export default function FeatureHighlightSection() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10">
         
-        {/* Section Header (Matched font size: text-3xl sm:text-4xl font-semibold text-[#0A0F1D]) */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
