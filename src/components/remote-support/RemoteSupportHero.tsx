@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { 
   ShieldCheck, 
   ArrowRight, 
   CheckCircle2, 
-  Zap,
-  BookOpen
+  Zap
 } from "lucide-react";
 
 interface RemoteSupportHeroProps {
@@ -57,30 +55,23 @@ export default function RemoteSupportHero({ onOpenSupportModal }: RemoteSupportH
               Get help with Microsoft 365 and Office installation, activation, setup, updates, and common technical issues.
             </motion.p>
 
-            {/* CTAs */}
+            {/* Premium 1st CTA Presentation (2nd CTA removed as requested) */}
             <motion.div 
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+              className="pt-2"
             >
-              {/* Primary CTA: Opens Interactive Remote Support Request Modal */}
               <button
                 onClick={() => onOpenSupportModal()}
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#0078D4] hover:bg-[#0067b8] text-white text-base font-semibold rounded-xl shadow-lg shadow-[#0078D4]/30 hover:shadow-xl hover:shadow-[#0078D4]/40 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                className="relative group overflow-hidden inline-flex items-center justify-center gap-3 px-9 py-4.5 bg-gradient-to-r from-[#0078D4] via-[#0067b8] to-[#005299] text-white text-base sm:text-lg font-semibold rounded-2xl shadow-xl shadow-[#0078D4]/35 hover:shadow-2xl hover:shadow-[#0078D4]/50 transform hover:-translate-y-1 active:translate-y-0 transition-all duration-300 cursor-pointer ring-4 ring-[#0078D4]/15"
               >
-                Get Remote Support
-                <ArrowRight className="w-5 h-5" />
+                {/* Subtle Shine Sweep Effect */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
+                
+                <span className="relative z-10 tracking-wide">Get Remote Support</span>
+                <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-
-              {/* Secondary CTA: Navigates to Office Guides & Technical Documentation */}
-              <Link
-                href="/guides"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 bg-white/90 hover:bg-slate-50 text-[#0A0F1D] text-base font-semibold rounded-xl border border-slate-300 shadow-sm hover:border-slate-400 transition-all cursor-pointer backdrop-blur-xs"
-              >
-                <BookOpen className="w-4.5 h-4.5 text-[#0078D4]" />
-                Explore Office Help
-              </Link>
             </motion.div>
 
             {/* Trust Micro-Bullets */}
