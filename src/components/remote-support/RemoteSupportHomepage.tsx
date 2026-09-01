@@ -62,7 +62,7 @@ export default function RemoteSupportHomepage() {
       {/* 11. Final CTA */}
       <FinalCTA onOpenSupportModal={handleOpenModal} />
 
-      {/* Interactive Remote Support Request Modal */}
+      {/* Interactive Remote Support Modal (Displays "Connect to Support Agent" Client Download Overlay on Click) */}
       <RemoteSupportModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}

